@@ -12,7 +12,6 @@ function spanify(string, div) {
 
 
 $(function () {
-console.log('yo');
 
 spanify('Daniel Goldman', $('#bio'));
 $('#bio').append('<br>');
@@ -28,6 +27,28 @@ spanify('Fireworks', $('#fireworks'))
 spanify('Links', $('#links-head'))
 spanify('Github', $('#Github'));
 spanify('LinkedIn', $('#LinkedIn'))
+
+var letterClass
+$('span').hover(
+  function (e) {
+
+    var letterClass= $(e.target).attr('class')[0]
+    $('.'+letterClass).removeClass('back-rotate')
+    $('.'+letterClass).addClass('color');
+    $('.'+letterClass).addClass('rotate');
+
+    console.log(e.target);
+  },function (e) {
+    var letterClass= $(e.target).attr('class')[0]
+
+    $('.'+letterClass).addClass('back-rotate')
+
+
+    $('.'+letterClass).removeClass('color')
+    $('.'+letterClass).removeClass('rotate')
+    console.log(e.target);
+  }
+)
 
 
 })

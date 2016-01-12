@@ -26,3 +26,18 @@ a, a:visited {
 #projects, #links {
   margin: 30px 0;
 }
+
+.color{
+  color: red;
+  font-weight: bold;
+}
+
+.rotate{
+  transition: 2000ms;
+  transform: rotate(720deg)
+}
+
+.back-rotate{
+  transition: 1500ms;
+  transform: rotate(-1440deg)
+}
