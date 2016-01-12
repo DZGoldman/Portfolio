@@ -27,17 +27,21 @@ a, a:visited {
   margin: 30px 0;
 }
 
-.color{
-  color: red;
-  font-weight: bold;
+#c{
+  font-size:12px;
+  bottom: 0px;
+  margin-bottom: 0px;
 }
 
+
 .rotate{
-  transition: 2000ms;
-  transform: rotate(720deg)
+  color: red;
+  font-weight: bold;
+  -webkit-transition: transform 300ms ease-out;
+  transform: rotate(360deg)
 }
 
 .back-rotate{
-  transition: 1500ms;
-  transform: rotate(-1440deg)
+  transition: transform 300ms ease-out;
+  transform: rotate(-360deg)
 }
