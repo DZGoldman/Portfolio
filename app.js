@@ -31,6 +31,7 @@ $(function() {
   spanify('Cubonic', $('#cubonic'));
   spanify('Sudoku', $('#sudoku'))
   spanify('Fireworks', $('#fireworks'))
+  spanify('Game of Life', $('#game-of-life'))
 
   spanify('Links', $('#links-head'))
   spanify('Github', $('#Github'));

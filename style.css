@@ -45,3 +45,7 @@ a, a:visited {
   transition: transform 300ms ease-out;
   transform: rotate(-360deg)
 }
+
+#projects-head, #links-head, #bio{
+  font-weight:bolder;
+}
