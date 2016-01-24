@@ -1,4 +1,20 @@
 //puts each letter in the string into a span div, appends them all into a div
+
+var Descriptions = {
+  droptone: 'drop-tone: User-interactive Newtonian piano playing app. If you can come up with a better single sentence description, email me. Final project for the Web Development Immersive course at General Assembly. Primary Technologies: MatterJS, Node.js, Express, and MongoDB.',
+
+  resume: "Resu-me: Job resume analysis and optimization tool that lets users compare their resumes to successful resumes of their desired job title. Created as part of a team with developers AK Williams and Kerstein Perez. Primary Technologies: D3, CasperJS, Node.js, Express, MongoDB, and Bootstrap.",
+
+  cubonic: "Cubonic: Original logic puzzle app with full CRUD functionality. As of writing this, only one person (baring myself) has managed to solve all 10 levels. Primary Technologies: Ruby on Rails (with extensive use of the JS assets and CSS animations), and PostreSQL.",
+
+  gameoflife: "Interactve environoment for running Conway's Game of Life. Technologies: JavaScript, HTML/CSS, and jQuery-ui.",
+
+  fireworks: "Fireworks show simulation, built with MatterJS.",
+
+  sudoku: "Sudoku playing environment, complete with general solving algorithm. My first web app, so go easy. At no point in building this did I actually solve a Sudoku. Technologies: JavaScript/Jquery, HTML/CSS.",
+  c: '?'
+}
+
 function spanify(string, div) {
   string.split('').forEach(function(letter) {
     var letterDiv = $('<span>').text(letter)
@@ -19,19 +35,21 @@ function getRandomColor() {
 
 
 $(function() {
+  $info = $('#info')
   console.log('I am in here.');
 
+  $('._').toggle()
   spanify('Daniel Goldman', $('#bio'));
   $('#bio').append('<br>');
   spanify('Full Stack Developer', $('#bio'));
 
   spanify('Projects', $('#projects-head'))
-  spanify('drop-tone', $('#drop-tone'));
-  spanify('Resu-me', $('#resu-me'));
+  spanify('drop-tone', $('#droptone'));
+  spanify('Resu-me', $('#resume'));
   spanify('Cubonic', $('#cubonic'));
   spanify('Sudoku', $('#sudoku'))
   spanify('Fireworks', $('#fireworks'))
-  spanify('Game of Life', $('#game-of-life'))
+  spanify('Game of Life', $('#gameoflife'))
 
   spanify('Links', $('#links-head'))
   spanify('Github', $('#Github'));
@@ -78,9 +96,23 @@ $(function() {
   }
 
 
+
   $('span').hover(
     //on hover
     function(e) {
+      var $project = $(this).parent()
+      // console.log($project.attr('id'));
+      console.log(Descriptions[$project.attr('id')])
+      if ( $project.attr('class')=='project' && $info.text()=="" ){
+            $info.show()
+            spanify( Descriptions[$project.attr('id')] , $info)
+            $info.children().each(function (index, cell) {
+              window.setTimeout(function () {
+                $cell = $(cell)
+                $cell.css('opacity', 0.5)
+              }, Math.random()*500)
+            })
+      }
       //check for spaces
       if (!$(e.target).attr('class')) {
         return 'stop'
@@ -89,6 +121,7 @@ $(function() {
       spin(letterClass)
       //special cases:
       special(letterClass, spin)
+
     },
     //off hover
     function(e) {
@@ -98,8 +131,74 @@ $(function() {
       var letterClass = $(e.target).attr('class')[0];
       unspin(letterClass)
       special(letterClass, unspin)
+
     }
+
   )
+  $('.project').mouseleave(function () {
+    $info.hide()
+    $info.empty()
+  })
+
+  jQuery.fn.reverse = [].reverse;
+  $('#c').click(function () {
+    window.setTimeout(function () {
+      location.reload()
+    },11500)
+    var size = $('span').length
+
+    $('span').each(function(i, c){
+      var color = getRandomColor()
+      $('body').animate({
+        backgroundColor:'black'
+      }, 3000)
+      $(c).animate({
+            color: color,
+            width:30
+          },3000,function () {
+                window.setTimeout(function(){
+                  $('body').addClass('body-rotate')
+                  fly($(c))
+                },Math.random()*3000+1000)
+          } );
+    })
+  })
+}) //end on load
 
 
-})
+function fly($span) {
+
+    switch (Math.floor(Math.random()*4)) {
+      case 0:
+        $span.addClass('scatterx')
+        break;
+      case 1:
+        $span.addClass('scattery')
+        break;
+      case 2:
+        $span.addClass('scattermx')
+        break;
+      case 3:
+        $span.addClass('scattermy')
+        break;
+      case 4:
+        $span.addClass('scattermy')
+        $span.addClass('scatterx')
+        break;
+      case 5:
+        $span.addClass('scattermx')
+        $span.addClass('scattery')
+        break
+      case 6:
+        $span.addClass('scattery')
+        $span.addClass('scatterx')
+        break;
+      case 7:
+      $span.addClass('scattermy')
+      $span.addClass('scattermx')
+        break;
+      default:
+    }
+
+
+}
