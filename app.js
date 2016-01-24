@@ -144,7 +144,7 @@ $(function() {
     audio.play();
     window.setTimeout(function () {
       location.reload()
-    },8000)
+    },13500)
     var size = $('span').length
 
     $('span').each(function(i, c){
