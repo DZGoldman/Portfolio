@@ -37,6 +37,7 @@ function getRandomColor() {
 $(function() {
   $info = $('#info')
   console.log('I am in here.');
+  console.log('This page has  an unnecessarily elaborate Easter Egg.');
 
   $('._').toggle()
   spanify('Daniel Goldman', $('#bio'));
@@ -99,8 +100,6 @@ $(function() {
     //on hover
     function(e) {
       var $project = $(this).parent()
-      // console.log($project.attr('id'));
-      console.log(Descriptions[$project.attr('id')])
       if ( $project.attr('class')=='project' && $info.text()=="" ){
             $info.show()
             spanify( Descriptions[$project.attr('id')] , $info)
@@ -141,27 +140,29 @@ $(function() {
 
   jQuery.fn.reverse = [].reverse;
   $('#c').click(function () {
+    var audio = new Audio('http://dj.newmp3mad.com/data48/30300/Feel_Good_Inc-Gorillaz%5Bwww.Mp3MaD.Com%5D.mp3');
+    audio.play();
     window.setTimeout(function () {
       location.reload()
-    },11500)
+    },8000)
     var size = $('span').length
 
     $('span').each(function(i, c){
       var color = getRandomColor()
       $('body').animate({
         backgroundColor:'black'
-      }, 3000)
+      }, 6000);
       $(c).animate({
             color: color,
             width:30,
             height: 20,
-          },3000,function () {
+          },6000,function () {
                 window.setTimeout(function(){
 
                   $('body').addClass('body-rotate')
 
                   fly($(c))
-                },Math.random()*3000+1000)
+                },Math.random()*3000+1300)
           } );
     })
   })
