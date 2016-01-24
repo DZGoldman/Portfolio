@@ -5,13 +5,13 @@ var Descriptions = {
 
   resume: "Resu-me: Job resume analysis and optimization tool that lets users compare their resumes to successful resumes of their desired job title. Created as part of a team with developers AK Williams and Kerstein Perez. Primary Technologies: D3, CasperJS, Node.js, Express, MongoDB, and Bootstrap.",
 
-  cubonic: "Cubonic: Original logic puzzle app with full CRUD functionality. As of writing this, only one person (baring myself) has managed to solve all 10 levels. Primary Technologies: Ruby on Rails (with extensive use of the JS assets and CSS animations), and PostreSQL.",
+  cubonic: "Cubonic: Original logic puzzle app with full CRUD functionality.Primary Technologies: Ruby on Rails (with extensive use of the JS assets and CSS animations), and PostreSQL. As of writing this, only one person (barring myself) has managed to solve all 10 levels.",
 
   gameoflife: "Interactve environoment for running Conway's Game of Life. Technologies: JavaScript, HTML/CSS, and jQuery-ui.",
 
   fireworks: "Fireworks show simulation, built with MatterJS.",
 
-  sudoku: "Sudoku playing environment, complete with general solving algorithm. My first web app, so go easy. At no point in building this did I actually solve a Sudoku. Technologies: JavaScript/Jquery, HTML/CSS.",
+  sudoku: "Sudoku playing environment, complete with general solving algorithm. My first web app, so go easy. Technologies: JavaScript/Jquery, HTML/CSS. At no point in building this did I actually solve Sudoku puzzle.",
   c: '?'
 }
 
@@ -95,8 +95,6 @@ $(function() {
 
   }
 
-
-
   $('span').hover(
     //on hover
     function(e) {
@@ -109,7 +107,8 @@ $(function() {
             $info.children().each(function (index, cell) {
               window.setTimeout(function () {
                 $cell = $(cell)
-                $cell.css('opacity', 0.5)
+                $cell.css('opacity', 0.8)
+                // $cell.fadeTo(200, 0.8)
               }, Math.random()*500)
             })
       }
@@ -154,10 +153,13 @@ $(function() {
       }, 3000)
       $(c).animate({
             color: color,
-            width:30
+            width:30,
+            height: 20,
           },3000,function () {
                 window.setTimeout(function(){
+
                   $('body').addClass('body-rotate')
+
                   fly($(c))
                 },Math.random()*3000+1000)
           } );
@@ -199,6 +201,4 @@ function fly($span) {
         break;
       default:
     }
-
-
 }

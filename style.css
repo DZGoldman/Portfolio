@@ -64,7 +64,12 @@ transform: translatey(-1000px)
 }
 
 .body-rotate{
-  -webkit-transition: transform 8000ms ;
+  -webkit-transition: transform 80000ms ;
+  transform: rotate(-3600deg)
+}
+
+.body-rotatem{
+  -webkit-transition: transform 80000ms ;
   transform: rotate(3600deg)
 }
 
