@@ -44,7 +44,7 @@ $(function() {
   $('#bio').append('<br>');
   spanify('Full Stack Developer', $('#bio'));
 
-  spanify('Projects', $('#projects-head'))
+  spanify('Projects:', $('#projects-head'))
   spanify('drop-tone', $('#droptone'));
   spanify('Resu-me', $('#resume'));
   spanify('Cubonic', $('#cubonic'));
@@ -52,7 +52,7 @@ $(function() {
   spanify('Fireworks', $('#fireworks'))
   spanify('Game of Life', $('#gameoflife'))
 
-  spanify('Links', $('#links-head'))
+  spanify('Links:', $('#links-head'))
   spanify('Github', $('#Github'));
   spanify('LinkedIn', $('#LinkedIn'));
   spanify('Email', $('#email'))

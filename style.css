@@ -27,12 +27,6 @@ a, a:visited {
   margin: 30px 0;
 }
 
-#c{
-  font-size:12px;
-  bottom: 0px;
-  margin-bottom: 0px;
-}
-
 
 .rotate{
   color: red;
@@ -73,8 +67,8 @@ transform: translatey(-1000px)
   transform: rotate(3600deg)
 }
 
-#projects-head, #links-head, #bio{
-  font-weight:bolder;
+#links-head, #projects-head, #bio{
+  font-weight: bolder
 }
 
 #info{
@@ -96,4 +90,15 @@ transform: translatey(-1000px)
 
 ._{
   display: none;
+}
+
+.link, .project{
+ font-size: 14px
+}
+
+#c{
+  font-size:11px;
+  bottom: 0px;
+  margin-bottom: 0px;
+  opacity: .6
 }
