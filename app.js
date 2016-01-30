@@ -18,7 +18,11 @@ var Descriptions = {
 function spanify(string, div) {
   string.split('').forEach(function(letter) {
     var letterDiv = $('<span>').text(letter)
+    if (letter==':') {
+      letterDiv.addClass('q');
+    }else{
     letterDiv.addClass(letter.toLowerCase());
+    }
     div.append(letterDiv);
 
   })
@@ -57,6 +61,7 @@ $(function() {
   spanify('LinkedIn', $('#LinkedIn'));
   spanify('Email', $('#email'))
   spanify('Daniel Goldman 2016', $('#c'))
+
 
   var letterClass
 

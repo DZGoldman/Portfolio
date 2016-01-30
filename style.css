@@ -6,6 +6,11 @@ body{
   font-size: 18px;
   line-height: 28px;
 }
+/*
+span{
+  display:inline-block;
+}*/
+
 
 ul {
   padding: 0;
@@ -29,15 +34,36 @@ a, a:visited {
 
 
 .rotate{
+  display: inline-block;
   color: red;
   font-weight: bold;
-  -webkit-transition: transform 300ms ease-out;
-  transform: rotate(360deg)
+  -webkit-transition: transform 500ms ease-out;
+  -moz-transition:transform 500ms ease-out;
+  -ms-transition: transform 500ms ease-out;
+  -o-transition: transform 500ms ease-out;
+  transition: transform 500ms ease-out;
+
+  -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+     -ms-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+         transform: rotate(360deg);
 }
 
 .back-rotate{
-  transition: transform 300ms ease-out;
-  transform: rotate(-360deg)
+  display: inline-block;
+  -webkit-transition: transform 500ms ease-out;
+  -moz-transition:transform 500ms ease-out;
+  -ms-transition: transform 500ms ease-out;
+  -o-transition: transform 500ms ease-out;
+  transition: transform 500ms ease-out;
+
+  -webkit-transform: rotate(-360deg);
+    -moz-transform: rotate(-360deg);
+     -ms-transform: rotate(-360deg);
+      -o-transform: rotate(-360deg);
+         transform: rotate(-360deg);
+
 }
 
 .scatterx{
