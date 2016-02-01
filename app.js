@@ -40,7 +40,6 @@ function getRandomColor() {
 
 $(function() {
   $info = $('#info')
-  console.log('I am in here.');
   console.log('This page has  an unnecessarily elaborate Easter Egg.');
 
   $('._').toggle()
@@ -80,10 +79,6 @@ $(function() {
 
   function special(letterClass, cb) {
     switch (letterClass) {
-      case '_':
-        cb('c')
-        // ;cb('o');cb('p');cb('y');cb('r');cb('i');cb('g');cb('h');cb('t');
-        break;
       case '2':
         cb('t');cb('w');cb('o');
         break
@@ -122,6 +117,7 @@ $(function() {
       }
       var letterClass = $(e.target).attr('class')[0];
       spin(letterClass)
+      $('title').text(letterClass.toUpperCase())
       //special cases:
       special(letterClass, spin)
 
@@ -134,6 +130,7 @@ $(function() {
       var letterClass = $(e.target).attr('class')[0];
       unspin(letterClass)
       special(letterClass, unspin)
+        $('title').text('DZG')
 
     }
 
