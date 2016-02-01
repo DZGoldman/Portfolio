@@ -5,13 +5,13 @@ var Descriptions = {
 
   resume: "Resu-me: Job resume analysis and optimization tool that lets users compare their resumes to successful resumes of their desired job title. Created as part of a team with developers AK Williams and Kerstein Perez. Primary Technologies: D3, CasperJS, Node.js, Express, MongoDB, and Bootstrap.",
 
-  cubonic: "Cubonic: Original logic puzzle app with full CRUD functionality.Primary Technologies: Ruby on Rails (with extensive use of the JS assets and CSS animations), and PostreSQL. As of writing this, only one person (barring myself) has managed to solve all 10 levels.",
+  cubonic: "Cubonic: Original logic puzzle app with full CRUD functionality. Primary Technologies: Ruby on Rails (with extensive use of the JS assets and CSS animations), and PostreSQL. As of writing this, only one person (barring myself) has managed to solve all 10 levels.",
 
   gameoflife: "Interactve environoment for running Conway's Game of Life. Technologies: JavaScript, HTML/CSS, and jQuery-ui.",
 
   fireworks: "Fireworks show simulation, built with MatterJS.",
 
-  sudoku: "Sudoku playing environment, complete with general solving algorithm. My first web app, so go easy. Technologies: JavaScript/Jquery, HTML/CSS. At no point in building this did I actually solve Sudoku puzzle.",
+  sudoku: "Sudoku playing environment, complete with general solving algorithm. My first web app, so go easy. Technologies: JavaScript/Jquery, HTML/CSS. At no point in building this did I actually solve a Sudoku puzzle.",
   c: '?'
 }
 
@@ -115,12 +115,12 @@ $(function() {
       if (!$(e.target).attr('class')) {
         return 'stop'
       }
+
       var letterClass = $(e.target).attr('class')[0];
       spin(letterClass)
       $('title').text(letterClass.toUpperCase())
       //special cases:
       special(letterClass, spin)
-
     },
     //off hover
     function(e) {
@@ -131,15 +131,16 @@ $(function() {
       unspin(letterClass)
       special(letterClass, unspin)
         $('title').text('DZG')
-
     }
 
   )
   $('.project').mouseleave(function () {
-    $info.hide()
     $info.empty()
+    $info.hide()
+
   })
 
+//...
   jQuery.fn.reverse = [].reverse;
   $('#c').click(function () {
     var audio = new Audio('http://dj.newmp3mad.com/data48/30300/Feel_Good_Inc-Gorillaz%5Bwww.Mp3MaD.Com%5D.mp3');
@@ -168,6 +169,8 @@ $(function() {
           } );
     })
   })
+
+  // $('span').draggable()
 }) //end on load
 
 
