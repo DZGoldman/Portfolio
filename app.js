@@ -25,6 +25,7 @@ function spanify(string, div) {
     }
     div.append(letterDiv);
 
+
   })
 }
 
@@ -140,6 +141,7 @@ $(function() {
 
   })
 
+$('body').fadeIn(600)
 //...
   jQuery.fn.reverse = [].reverse;
   $('#c').click(function () {

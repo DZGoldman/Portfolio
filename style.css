@@ -5,11 +5,12 @@ body{
   font-family: 'Cousine', monospace;
   font-size: 18px;
   line-height: 28px;
+  display: none;
 }
-/*
+
 span{
-  display:inline-block;
-}*/
+  /*display:none*/
+}
 
 
 ul {
