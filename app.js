@@ -141,7 +141,7 @@ $(function() {
 
   })
 
-$('body').fadeIn(600)
+$('body').fadeIn(500)
 //...
   jQuery.fn.reverse = [].reverse;
   $('#c').click(function () {
@@ -172,7 +172,7 @@ $('body').fadeIn(600)
     })
   })
 
-  // $('span').draggable()
+  $('#links-head').children().draggable()
 }) //end on load
 
 
