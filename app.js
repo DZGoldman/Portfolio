@@ -41,6 +41,8 @@ function getRandomColor() {
 
 $(function() {
   $info = $('#info')
+  console.log("If you can't click it, you can drag it.");
+
   console.log('This page has  an unnecessarily elaborate Easter Egg.');
 
   $('._').toggle()
@@ -171,7 +173,8 @@ $('body').fadeIn(500)
           } );
     })
   })
-
+  $('#bio').children().draggable()
+  $('#projects-head').children().draggable()
   $('#links-head').children().draggable()
 }) //end on load
 
