@@ -1,0 +1,23 @@
+{
+  "name": "personal_site",
+  "homepage": "https://github.com/DZGoldman/Portfolio",
+  "authors": [
+    "Daniel Goldman <dzgoldman@wesleyan.edu>"
+  ],
+  "description": "Daniel Goldman portfolio",
+  "main": "app.js",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "jquery-ui": "^1.11.4"
+  }
+}
