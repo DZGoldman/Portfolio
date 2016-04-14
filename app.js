@@ -1,6 +1,7 @@
 //puts each letter in the string into a span div, appends them all into a div
 
 var Descriptions = {
+  githubdata:'Github Data: app for for scraping and analyzing data of Github users. Includes features for uploading and exporting CSV files. Primary Technologies: Node-Express, PostgreSQl. Built as independent contract work for Liquid Talent',
   droptone: 'drop-tone: User-interactive Newtonian piano playing app. If you can come up with a better single sentence description, email me. Final project for the Web Development Immersive course at General Assembly. Primary Technologies: MatterJS, Node.js, Express, and MongoDB.',
 
   resume: "Resu-me: Job resume analysis and optimization tool that lets users compare their resumes to successful resumes of their desired job title. Created as part of a team with developers AK Williams and Kerstein Perez. Primary Technologies: D3, CasperJS, Node.js, Express, MongoDB, and Bootstrap.",
@@ -50,7 +51,8 @@ $(function() {
   $('#bio').append('<br>');
   spanify('Full Stack Developer', $('#bio'));
 
-  spanify('Projects:', $('#projects-head'))
+  spanify('Projects:', $('#projects-head'));
+  spanify('Github Data', $('#githubdata'));
   spanify('drop-tone', $('#droptone'));
   spanify('Resu-me', $('#resume'));
   spanify('Cubonic', $('#cubonic'));
