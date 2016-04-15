@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Cousine);
 
 body{
-  margin: 50px 80px;
+  margin: 30px 80px;
   font-family: 'Cousine', monospace;
   font-size: 18px;
   line-height: 28px;
@@ -124,7 +124,6 @@ transform: translatey(-1000px)
 
 #c{
   font-size:11px;
-  bottom: 0px;
   margin-bottom: 0px;
   opacity: .6
 }
