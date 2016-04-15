@@ -60,7 +60,8 @@ $(function() {
   spanify('Fireworks', $('#fireworks'))
   spanify('Game of Life', $('#gameoflife'))
 
-  spanify('Links:', $('#links-head'))
+  spanify('Links:', $('#links-head'));
+  spanify('Resume', $('#myresume'));
   spanify('Github', $('#Github'));
   spanify('LinkedIn', $('#LinkedIn'));
   spanify('Email', $('#email'))
