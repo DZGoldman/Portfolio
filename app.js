@@ -58,6 +58,7 @@ $(function() {
     spanify('drop-tone', $('#droptone'));
     spanify('Resu-me', $('#resume'));
     spanify('Cubonic', $('#cubonic'));
+    spanify('Other Projects:', $('#other-head'));
     spanify('Sudoku', $('#sudoku'))
     spanify('Fireworks', $('#fireworks'))
     spanify('Game of Life', $('#gameoflife'))
