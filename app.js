@@ -2,12 +2,16 @@
 
 var Descriptions = {
   trump: "Donald Trump / Mussolini twitter bot. Stores data from Trump's twitter feed and Mussolini's autobiography and uses a Markov chain algorithm to generate tweets in their combined literary style. Built with Ruby on Rails, posgreSQL, and the twitter API. #‎RendereTwitterDiNuovoGrande‬",
+
   githubdata: 'Github Data: app for for scraping and analyzing data of Github users. Includes features for uploading and exporting CSV files. Primary Technologies: Node-Express, PostgreSQl. Built as independent contract work for Liquid Talent',
+
   droptone: 'drop-tone: User-interactive Newtonian piano playing app. If you can come up with a better single sentence description, email me. Final project for the Web Development Immersive course at General Assembly. Primary Technologies: MatterJS, Node.js, Express, and MongoDB.',
 
   resume: "Resu-me: Job resume analysis and optimization tool that lets users compare their resumes to successful resumes of their desired job title. Created as part of a team with developers AK Williams and Kerstein Perez. Primary Technologies: D3, CasperJS, Node.js, Express, MongoDB, and Bootstrap.",
 
   cubonic: "Cubonic: Original logic puzzle app with full CRUD functionality. Primary Technologies: Ruby on Rails (with extensive use of the JS assets and CSS animations), and PostreSQL. As of writing this, only one person (barring myself) has managed to solve all 10 levels.",
+
+  freq: "Typography experiment in live text analysis. Provides real time feedback of character frequency and sentence tone. Built with Angular-Node-Express, and uses the Alchemy API for sentiment analysis." ,
 
   gameoflife: "Interactve environoment for running Conway's Game of Life. Technologies: JavaScript, HTML/CSS, and jQuery-ui.",
 
