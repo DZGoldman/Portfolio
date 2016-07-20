@@ -62,7 +62,7 @@ $(function() {
     spanify('Sudoku', $('#sudoku'))
     spanify('Fireworks', $('#fireworks'))
     spanify('Game of Life', $('#gameoflife'))
-
+    spanify('Freq', $('#freq'));
     spanify('Links:', $('#links-head'));
     spanify('Resume', $('#myresume'));
     spanify('Github', $('#Github'));
