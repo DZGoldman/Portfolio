@@ -47,9 +47,9 @@ function getRandomColor() {
 
 $(function() {
     $info = $('#info')
-    console.log("If you can't click it, you can drag it.");
+    console.info("%cIf you can't click it, you can drag it.", 'color: green;');
 
-    console.log('This page has  an unnecessarily elaborate Easter Egg.');
+    console.info('%cThis page has an unnecessarily elaborate Easter Egg.', 'color: blue;');
 
     $('._').toggle()
     spanify('Daniel Goldman', $('#bio'));
