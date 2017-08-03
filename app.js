@@ -47,7 +47,7 @@ function getRandomColor() {
 
 $(function() {
     $info = $('#info')
-    console.info("%cIf you can't click it, you can drag it.", 'color: green;');
+    console.info("%cLinks aren't all you can click.", 'color: green;');
 
     console.info('%cThis page has an unnecessarily elaborate Easter Egg.', 'color: blue;');
 
@@ -115,43 +115,45 @@ $(function() {
       }
 
     }
+    var onHover = function(e) {
+      var $project = $(this).parent()
+      if ($project.attr('class') == 'project' && $info.text() == "") {
+        $info.show()
+        spanify(Descriptions[$project.attr('id')], $info)
+        $info.children().each(function(index, cell) {
+          window.setTimeout(function() {
+            $cell = $(cell)
+            $cell.css('opacity', 0.8)
+              // $cell.fadeTo(200, 0.8)
+          }, Math.random() * 500)
+        })
+      }
+      //check for spaces
+      if (!$(e.target).attr('class')) {
+        return 'stop'
+      }
 
+      var letterClass = $(e.target).attr('class')[0];
+      spin(letterClass)
+      $('title').text(letterClass.toUpperCase())
+        //special cases:
+      special(letterClass, spin)
+    }
+
+    var offHover =     function(e) {
+          if (!$(e.target).attr('class')) {
+            return 'stop'
+          }
+          var letterClass = $(e.target).attr('class')[0];
+          unspin(letterClass)
+          special(letterClass, unspin)
+          $('title').text('DZG')
+        }
     $('span').hover(
       //on hover
-      function(e) {
-        var $project = $(this).parent()
-        if ($project.attr('class') == 'project' && $info.text() == "") {
-          $info.show()
-          spanify(Descriptions[$project.attr('id')], $info)
-          $info.children().each(function(index, cell) {
-            window.setTimeout(function() {
-              $cell = $(cell)
-              $cell.css('opacity', 0.8)
-                // $cell.fadeTo(200, 0.8)
-            }, Math.random() * 500)
-          })
-        }
-        //check for spaces
-        if (!$(e.target).attr('class')) {
-          return 'stop'
-        }
-
-        var letterClass = $(e.target).attr('class')[0];
-        spin(letterClass)
-        $('title').text(letterClass.toUpperCase())
-          //special cases:
-        special(letterClass, spin)
-      },
+      onHover,
       //off hover
-      function(e) {
-        if (!$(e.target).attr('class')) {
-          return 'stop'
-        }
-        var letterClass = $(e.target).attr('class')[0];
-        unspin(letterClass)
-        special(letterClass, unspin)
-        $('title').text('DZG')
-      }
+      offHover
 
     )
     $('.project').mouseleave(function() {
@@ -190,16 +192,36 @@ $(function() {
         });
       })
     })
-    $('#bio').children().click(function(e) {
+    $('#other-head').children().on('mouseup',function(e) {
+      e.preventDefault()
       var $t = $(e.target);
       var upper = $t.text().toUpperCase();
       var lower = $t.text().toLowerCase();
       if ($t.text() == upper) {
         $t.text(lower)
       } else if ($t.text() == lower) $t.text(upper)
+        window.getSelection && window.getSelection().collapse($t[0])
     })
     $('#projects-head').children().draggable()
-    $('#links-head').children().draggable()
+    $('#links-head').click(function () {
+      $(this).empty()
+      spanify( 'Links:'.split('').sort(function(){return 0.5-Math.random()}).join(''), $(this))
+      $(this).find('span').hover(onHover, offHover)
+      window.getSelection && window.getSelection().collapse(this)
+    })
+
+    $('#bio').click(function (e) {
+      e.preventDefault()
+      var $t = $(e.target);
+        $(this).children().each(function (i , node) {
+          $(node).css('color', getRandomColor())
+        })
+      // if($t.prop('tagName')=='SPAN'){
+      //   $t.css('color', getRandomColor())
+      // }
+      window.getSelection && window.getSelection().collapse($t[0])
+
+    })
   }) //end on load
 
 
