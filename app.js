@@ -44,6 +44,33 @@ function getRandomColor() {
   return color;
 }
 
+function switchCase($node) {
+  var original = $node.text()
+  var upper = $node.text().toUpperCase();
+  var lower = $node.text().toLowerCase();
+  if (original== upper) {
+    $node.text(lower)
+  } else if (original== lower) {
+    $node.text(upper)
+  }
+}
+
+function caseAnimation($node, forward) {
+  if($node.length){
+    switchCase($node)
+    window.setTimeout(function () {
+      switchCase($node)
+    },160)
+    window.setTimeout(function () {
+      if (forward) {
+        caseAnimation($node.next(), forward)
+      } else{
+        caseAnimation($node.prev(), forward)
+      }
+    },80)
+  }
+}
+
 
 $(function() {
     $info = $('#info')
@@ -62,7 +89,7 @@ $(function() {
     spanify('drop-tone', $('#droptone'));
     spanify('Resu-me', $('#resume'));
     spanify('Cubonic', $('#cubonic'));
-    spanify('Other Projects:', $('#other-head'));
+    spanify('other projects:', $('#other-head'));
     spanify('Sudoku', $('#sudoku'))
     spanify('Fireworks', $('#fireworks'))
     spanify('Game of Life', $('#gameoflife'))
@@ -195,12 +222,9 @@ $(function() {
     $('#other-head').children().on('mouseup',function(e) {
       e.preventDefault()
       var $t = $(e.target);
-      var upper = $t.text().toUpperCase();
-      var lower = $t.text().toLowerCase();
-      if ($t.text() == upper) {
-        $t.text(lower)
-      } else if ($t.text() == lower) $t.text(upper)
-        window.getSelection && window.getSelection().collapse($t[0])
+      caseAnimation($t, true)
+      caseAnimation($t)
+      window.getSelection && window.getSelection().collapse($t[0])
     })
     $('#projects-head').children().draggable()
     $('#links-head').click(function () {
