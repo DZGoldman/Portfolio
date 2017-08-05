@@ -193,7 +193,7 @@ $(function() {
       //...
     jQuery.fn.reverse = [].reverse;
     $('#c').click(function() {
-      var audio = new Audio('http://dj.newmp3mad.com/data48/30300/Feel_Good_Inc-Gorillaz%5Bwww.Mp3MaD.Com%5D.mp3');
+      var audio = new Audio('feelgood.mp3');
       audio.play();
       window.setTimeout(function() {
         location.reload()
@@ -204,12 +204,12 @@ $(function() {
         var color = getRandomColor()
         $('body').animate({
           backgroundColor: 'black'
-        }, 6000);
+        }, 5500);
         $(c).animate({
           color: color,
           width: 30,
           height: 20,
-        }, 6000, function() {
+        }, 5500, function() {
           window.setTimeout(function() {
 
             $('body').addClass('body-rotate')
