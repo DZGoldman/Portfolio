@@ -238,10 +238,7 @@ $(function() {
         $(this).addClass('hrotate')
 
       }
-      // $(this).empty()
-      // spanify( 'Links:'.split('').sort(function(){return 0.5-Math.random()}).join(''), $(this))
-      // $(this).find('span').hover(onHover, offHover)
-      // window.getSelection && window.getSelection().collapse(this)
+
     })
 
     $('#bio').click(function (e) {
@@ -250,10 +247,22 @@ $(function() {
         $(this).children().each(function (i , node) {
           $(node).css('color', getRandomColor())
         })
-      // if($t.prop('tagName')=='SPAN'){
-      //   $t.css('color', getRandomColor())
-      // }
+
       window.getSelection && window.getSelection().collapse($t[0])
+    })
+
+    $('.corner').click(function (e) {
+      var id = $(e.target).attr('id')
+      if(id=='corner-4'){
+        $('#corner-3').fadeIn(blinkFade)
+      } else if( id=='corner-3'){
+        $('#corner-2').fadeIn(blinkFade)
+      } else if (id=='corner-2'){
+        $('#corner-1').fadeIn(blinkFade)
+      } else if (id=='corner-1'){
+        $('#corner-3 #corner-1 #corner-2').fadeOut()
+        morseCodify()
+      }
 
     })
   }) //end on load
@@ -292,4 +301,47 @@ function fly($span) {
       break;
     default:
   }
+}
+
+var morse = {
+    '.-': 'a', '-...': 'b', '-.-.': 'c', '-..': 'd', '.': 'e',
+    '..-.': 'f', '--.': 'g', '....': 'h', '..': 'i', '.---': 'j',
+    '-.-': 'k', '.-..': 'l', '--': 'm', '-.': 'n', '---': 'o',
+    '.--.': 'p', '--.-': 'q', '.-.': 'r', '...': 's', '-': 't',
+    '..-': 'u', '...-': 'v', '.--': 'w', '-..-': 'x', '-.--': 'y',
+    '--..': 'z', '.----': '1', '..---': '2', '...--': '3',
+    '....-': '4', '.....': '5', '-....': '6', '--...': '7',
+    '---..': '8', '----.': '9', '-----': '0', '.-.-.-': '.',
+    '--..--': ',', '..--..': '?', '-..-.': '/', '.--.-.': '@'
+};
+
+var val;
+var morseD = {}
+for (key in morse){
+  val = morse[key]
+  morseD[val] = key
+}
+function morseConvert(l) {
+  return morseD[l] || l
+}
+
+
+
+function morseCodify(){
+  var $spans = $('span')
+  function morseCodeOne(index){
+    var $currentSpan = $spans.eq(index)
+    if(!$currentSpan.length) return
+    $currentSpan.text(morseConvert($currentSpan.text().toLowerCase()))
+    window.setTimeout(function () {
+      morseCodeOne(index+1)
+    },15)
+  }
+  morseCodeOne(0)
+}
+
+function blinkFade() {
+  $(this).fadeOut('fast',function () {
+      $(this).fadeIn('fast', blinkFade)
+  })
 }

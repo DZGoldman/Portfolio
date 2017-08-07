@@ -177,3 +177,33 @@ transform: translatey(-1000px)
 span{
   /*padding: 1px;*/
 }
+
+#corner-1,#corner-2, #corner-3,#corner-4{
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: black;
+  border-radius: 3px;
+  cursor: pointer;
+}
+#corner-1{
+  left:2%;
+  top:2%;
+  display: none
+
+}
+#corner-2{
+  right:2%;
+  top:2%;
+  display: none
+}
+
+#corner-3{
+  left:2%;
+  bottom:2%;
+  display: none
+}
+#corner-4{
+  right:2%;
+  bottom:2%;
+}
