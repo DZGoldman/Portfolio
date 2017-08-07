@@ -193,7 +193,9 @@ $(function() {
       //...
     jQuery.fn.reverse = [].reverse;
     $('#c').click(function() {
-      var audio = new Audio('feelgood.mp3');
+      var audio = new Audio('audio/feelgood.mp3');
+      $('#tab-icon').attr('href', "images/gor.png")
+
       audio.play();
       window.setTimeout(function() {
         location.reload()
@@ -228,10 +230,18 @@ $(function() {
     })
     $('#projects-head').children().draggable()
     $('#links-head').click(function () {
-      $(this).empty()
-      spanify( 'Links:'.split('').sort(function(){return 0.5-Math.random()}).join(''), $(this))
-      $(this).find('span').hover(onHover, offHover)
-      window.getSelection && window.getSelection().collapse(this)
+      if($(this).hasClass('hrotate')){
+        $(this).removeClass('hrotate')
+        $(this).addClass('bhrotate')
+      }else{
+        $(this).removeClass('bhrotate')
+        $(this).addClass('hrotate')
+
+      }
+      // $(this).empty()
+      // spanify( 'Links:'.split('').sort(function(){return 0.5-Math.random()}).join(''), $(this))
+      // $(this).find('span').hover(onHover, offHover)
+      // window.getSelection && window.getSelection().collapse(this)
     })
 
     $('#bio').click(function (e) {

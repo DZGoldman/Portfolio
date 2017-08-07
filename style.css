@@ -34,6 +34,45 @@ a, a:visited {
 }
 
 
+
+.hrotate{
+  display: inline-block;
+  color: red;
+  font-weight: bold;
+  -webkit-transition: transform 2000ms ease-out;
+  -moz-transition:transform 2000ms ease-out;
+  -ms-transition: transform 2000ms ease-out;
+  -o-transition: transform 2000ms ease-out;
+  transition: transform 2000ms ease-out;
+
+  -webkit-transform: rotate(1990deg);
+    -moz-transform: rotate(1990deg);
+     -ms-transform: rotate(1990deg);
+      -o-transform: rotate(1990deg);
+         transform: rotate(1990deg);
+}
+
+
+
+
+.bhrotate{
+  display: inline-block;
+  color: red;
+  font-weight: bold;
+  -webkit-transition: transform 2000ms ease-out;
+  -moz-transition:transform 2000ms ease-out;
+  -ms-transition: transform 2000ms ease-out;
+  -o-transition: transform 2000ms ease-out;
+  transition: transform 2000ms ease-out;
+
+  -webkit-transform: rotate(-1800deg);
+    -moz-transform: rotate(-1800deg);
+     -ms-transform: rotate(-1800deg);
+      -o-transform: rotate(-1800deg);
+         transform: rotate(-1800deg);
+}
+
+
 .rotate{
   display: inline-block;
   color: red;
