@@ -23,7 +23,15 @@ var Descriptions = {
 
 function spanify(string, div) {
   string.split('').forEach(function(letter) {
-    var letterDiv = $('<span>').text(letter)
+    var letterDiv ;
+    if (window.morse){
+      letterDiv  = $('<span>').text(morseD[letter])
+    } else{
+
+      letterDiv  = $('<span>').text(letter)
+    }
+    letterDiv.attr('original', letter)
+
     if (letter == ':') {
       letterDiv.addClass('q');
     } else {
@@ -261,6 +269,13 @@ $(function() {
         $('#corner-1').fadeIn(blinkFade)
       } else if (id=='corner-1'){
         $('#corner-3 #corner-1 #corner-2').fadeOut()
+        // $('#corner-1').css('background-color', 'red')
+        $('#corner-1').css({
+          width: 10,
+          height: 10,
+          'border-radius': 5,
+          'background-color': 'red'
+        })
         morseCodify()
       }
 
@@ -326,13 +341,21 @@ function morseConvert(l) {
 }
 
 
+window.morse = false
+
 
 function morseCodify(){
   var $spans = $('span')
+  window.morse = !window.morse
   function morseCodeOne(index){
     var $currentSpan = $spans.eq(index)
     if(!$currentSpan.length) return
-    $currentSpan.text(morseConvert($currentSpan.text().toLowerCase()))
+    if (window.morse){
+
+      $currentSpan.text(morseConvert($currentSpan.text().toLowerCase()))
+    }else{
+      $currentSpan.text($currentSpan.attr('original'))
+    }
     window.setTimeout(function () {
       morseCodeOne(index+1)
     },15)
