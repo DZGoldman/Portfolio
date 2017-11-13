@@ -11,7 +11,19 @@ body{
 span{
   /*display:none*/
 }
-
+#counter{
+  /* position: absolute; */
+  top: 5px;
+  top: 68px;
+  opacity: 0;
+  color: #e7e7e7;
+  font-size: 20px;
+  width: 15px;
+}
+#counter:hover{
+  opacity: 1;
+  cursor: pointer;
+}
 
 ul {
   padding: 0;
@@ -30,7 +42,7 @@ a, a:visited {
 }
 
 #projects, #links {
-  margin: 30px 0;
+  margin: 10px 0 30px 0;
 }
 
 
@@ -134,7 +146,8 @@ transform: translatey(-1000px)
 }
 
 #links-head, #projects-head, #bio, #other-head{
-  font-weight: bolder
+  font-weight: bolder;
+  position: relative;
 }
 
 #info{
@@ -206,4 +219,12 @@ span{
 #corner-4{
   right:2%;
   bottom:2%;
+}
+
+.serp-icon{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 40%;
+  top: 40%;
 }

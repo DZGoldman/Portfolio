@@ -84,7 +84,7 @@ $(function() {
     $info = $('#info')
     console.info("%cLinks aren't all you can click.", 'color: green;');
 
-    console.info('%cThis page has an unnecessarily elaborate Easter Egg.', 'color: blue;');
+    console.info('%cThis page has unnecessarily elaborate Easter Eggs.', 'color: blue;');
 
     $('._').toggle()
     spanify('Daniel Goldman', $('#bio'));
@@ -280,6 +280,34 @@ $(function() {
       }
 
     })
+
+
+    var localStorage = window.localStorage;
+    if (localStorage) { 
+
+      if (!localStorage['clickCount']) {
+        localStorage['clickCount'] = 5
+      } 
+      $('#counter').text(localStorage['clickCount'])
+
+      var clicked = false
+      $('#counter').click(function(){
+        if (clicked) return
+        clicked = true
+        localStorage['clickCount'] --
+        $('#counter').text(localStorage['clickCount'] )
+        if (localStorage['clickCount'] == 0) {
+          $('#counter').fadeOut(2000, function(){
+            localStorage['clickCount'] = 5;
+            $('#counter').text(localStorage['clickCount'] )
+            $('#counter').fadeIn()
+          })
+          melt()
+        }
+      })
+    }
+
+ 
   }) //end on load
 
 
@@ -367,4 +395,48 @@ function blinkFade() {
   $(this).fadeOut('fast',function () {
       $(this).fadeIn('fast', blinkFade)
   })
+}
+var letters = 'wertyuiopasdfghjklqzxcvbnm2016a'
+function melt() {
+  let lettersArray = letters.split('')
+  shuffle(lettersArray)
+  $('span').animate({
+      'font-size':0,
+      'line-height':0
+    }, 2000)
+    window.setTimeout(function () {
+      meltOne()
+    }, 2000)
+  function meltOne() {
+    if (!lettersArray.length) {
+      window.setTimeout(function () {
+        $('span').animate({
+          'font-size':16,
+          'line-height':23
+        }, 1000)
+      },500)
+      return
+    }
+    var letter = lettersArray.pop();
+    $('.'+letter).animate({
+      'font-size':16,
+      'line-height':23
+    }, 1000*Math.random()+ 1000)
+    window.setTimeout(function () {
+      meltOne()
+    }, 150)
+  }
+
+
+
+}
+
+function shuffle(a) {
+    var j, x, i;
+    for (i = a.length; i; i--) {
+        j = Math.floor(Math.random() * i);
+        x = a[i - 1];
+        a[i - 1] = a[j];
+        a[j] = x;
+    }
 }
