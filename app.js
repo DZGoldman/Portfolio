@@ -151,6 +151,7 @@ $(function() {
 
     }
     var onHover = function(e) {
+      if (isMobile()) return
       var $project = $(this).parent()
       if ($project.attr('class') == 'project' && $info.text() == "") {
         $info.show()
@@ -176,6 +177,8 @@ $(function() {
     }
 
     var offHover =     function(e) {
+      if (isMobile()) return
+      
           if (!$(e.target).attr('class')) {
             return 'stop'
           }
@@ -311,6 +314,9 @@ $(function() {
   }) //end on load
 
 
+function isMobile(){
+  return $(window).width() < 500 && $(window).height() < 800
+}
 function fly($span) {
 
   switch (Math.floor(Math.random() * 4)) {
