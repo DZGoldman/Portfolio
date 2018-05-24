@@ -105,6 +105,7 @@ $(function() {
     spanify('Links:', $('#links-head'));
     spanify('Resume', $('#myresume'));
     spanify('Github', $('#Github'));
+    spanify('Medium', $('#Medium'));
     spanify('LinkedIn', $('#LinkedIn'));
     spanify('Email', $('#email'));
       spanify('Writing Portfolio', $('#writing'))
