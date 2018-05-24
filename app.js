@@ -3,7 +3,7 @@
 var Descriptions = {
   trump: "Donald Trump / Mussolini twitter bot. Stores data from Trump's twitter feed and Mussolini's autobiography and uses a Markov chain algorithm to generate tweets in their combined literary style. Built with Ruby on Rails, posgreSQL, and the twitter API. #‎RendereTwitterDiNuovoGrande‬",
 
-  githubdata: 'Github Data: app for for scraping and analyzing data of Github users. Includes features for uploading and exporting CSV files. Primary Technologies: Node-Express, PostgreSQl. Built as independent contract work for Liquid Talent',
+  githubdata: 'Github Data: internal tool for for scraping and analyzing data of Github users. Includes features for uploading and exporting CSV files. Primary Technologies: Node-Express, PostgreSQl. Built as independent contract work for Liquid Talent',
 
   droptone: 'drop-tone: User-interactive Newtonian piano playing app. If you can come up with a better single sentence description, email me. Final project for the Web Development Immersive course at General Assembly. Primary Technologies: MatterJS, Node.js, Express, and MongoDB.',
 
@@ -97,7 +97,7 @@ $(function() {
     spanify('drop-tone', $('#droptone'));
     spanify('Resu-me', $('#resume'));
     spanify('Cubonic', $('#cubonic'));
-    spanify('other projects:', $('#other-head'));
+    spanify('Widgets:', $('#other-head'));
     spanify('Sudoku', $('#sudoku'))
     spanify('Fireworks', $('#fireworks'))
     spanify('Game of Life', $('#gameoflife'))
