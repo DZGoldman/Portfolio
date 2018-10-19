@@ -89,25 +89,30 @@ $(function() {
     $('._').toggle()
     spanify('Daniel Goldman', $('#bio'));
     $('#bio').append('<br>');
-    spanify('Full Stack Developer', $('#bio'));
+    spanify('Software Developer, Writer', $('#bio'));
 
-    spanify('Projects:', $('#projects-head'));
+    spanify('Projects', $('#projects-head'));
     spanify('Github Data', $('#githubdata'));
     spanify('Donaldo Trumpilini', $('#trump'));
     spanify('drop-tone', $('#droptone'));
     spanify('Resu-me', $('#resume'));
     spanify('Cubonic', $('#cubonic'));
-    spanify('Widgets:', $('#other-head'));
+    spanify('Other Projects', $('#other-head'));
     spanify('Sudoku', $('#sudoku'))
     spanify('Fireworks', $('#fireworks'))
     spanify('Game of Life', $('#gameoflife'))
     spanify('Freq', $('#freq'));
-    spanify('Links:', $('#links-head'));
+    // spanify('Links:', $('#links-head'));
     spanify('Resume', $('#myresume'));
     spanify('Github', $('#Github'));
     spanify('Medium', $('#Medium'));
     spanify('LinkedIn', $('#LinkedIn'));
     spanify('Email', $('#email'));
+    spanify('Writing', $('#writing-head'));
+    spanify('Other Writing', $('#other-writing-head'));
+    spanify('Press', $('#press-head'));
+    spanify('Links / Info', $('#links-head'));
+
       spanify('Writing Portfolio', $('#writing'))
     spanify('Daniel Goldman 2016', $('#c'))
 
@@ -151,20 +156,113 @@ $(function() {
       }
 
     }
+
+    
+    var currentHeadingId = ''
+    var headingHover = function(e) {
+     
+
+      const $heading = $(this);
+      const id = $heading.attr('id')
+
+      if (currentHeadingId == id) {
+        return
+      } else {
+        currentHeadingId = id
+      }
+      $('.sub-cat').find('span').each(function(){
+        $(this).css('opacity', 0)
+      })
+      $heading.animate({
+        'font-size': '18'}, 280)
+      $heading.css('font-weight', 'bolder')
+      
+      const sub = $('#'+id+'-sub')
+
+
+        // TODO: this kills all hover events...
+      // var temp = sub.remove()
+      $('#sub-cats').prepend(sub)
+
+
+
+      // "others" - opacity 0, regular font-weight
+      var headings = $('.heading')
+      headings.each(function(){
+        var heading  = $(this);
+        if (heading.attr('id') == id){
+          return
+        }
+        
+        heading.css('font-weight', 'normal')
+      heading.animate({
+          'font-size': '16'}, 280)
+  
+
+      })
+
+      shimmerOn(sub)
+
+
+    }
+
+    var headingOffHover = function(e){
+      const $heading = $(this);
+    
+      const id = $heading.attr('id')
+      const sub = $('#'+id+'-sub')
+      // sub.attr('opacity', 0)
+      sub.find('span').each(function(){
+        $(this).css('opacity', 0)
+      })
+
+    }
+
+
+    $('.heading').hover(
+      //on hover
+      headingHover
+
+    )
+
+    var shimmerOn = function(el){
+      // your pale blue ees
+      el.find('span').each(function(index, cell) {
+        window.setTimeout(function() {
+          $cell = $(cell)
+          $cell.css('opacity', 0.8)
+            // $cell.fadeTo(200, 0.8)
+        }, Math.random() * 500)
+      })
+    }
+    
+    // var currentProjectId= ''
+
+    var projectHover = function() {
+      var $project = $(this)
+      if ( $info.text() == "") {
+        $info.show()
+        var id = $project.attr('id')
+      
+        $project.css('font-weight', 'bold')
+        
+        $('.project').each(function(){
+          var project = $(this);
+          var projIdLoop = project.attr('id')
+          if (projIdLoop != id){
+
+            project.css('font-weight', 'normal')
+          }
+        })
+        spanify(Descriptions[$project.attr('id')], $info)
+        shimmerOn($info)
+    
+      }
+    }
+    $('.project').hover(projectHover)
+
     var onHover = function(e) {
       if (isMobile()) return
-      var $project = $(this).parent()
-      if ($project.attr('class') == 'project' && $info.text() == "") {
-        $info.show()
-        spanify(Descriptions[$project.attr('id')], $info)
-        $info.children().each(function(index, cell) {
-          window.setTimeout(function() {
-            $cell = $(cell)
-            $cell.css('opacity', 0.8)
-              // $cell.fadeTo(200, 0.8)
-          }, Math.random() * 500)
-        })
-      }
       //check for spaces
       if (!$(e.target).attr('class')) {
         return 'stop'
