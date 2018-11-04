@@ -11,6 +11,18 @@ body{
 span{
   /*display:none*/
 }
+.heading{
+  /* font-weight: bold; */
+  cursor: pointer;
+  margin-bottom: 200px;
+
+
+}
+
+#bio, #bio-line{
+  font-weight: bolder
+
+}
 #counter{
   /* position: absolute; */
   top: 5px;
@@ -44,6 +56,13 @@ a, a:visited {
 #wrapper{
   display: flex;
   flex-direction: row;
+  margin-top: 30px;
+}
+#projects-head-sub{
+  margin-top: 10px;
+}
+#wrapper > div {
+  margin-left: 100px;
 }
 
 #categories, #links {
@@ -53,11 +72,13 @@ a, a:visited {
 }
 
 #categories > li{
-  margin-top: 30px
+  margin-bottom: 10px
 }
 #sub-cats{
   /* display: flex;
   flex-direction: column */
+  /* max-height: 100px;
+  overflow: scroll; */
 }
 
 
@@ -169,18 +190,20 @@ transform: translatey(-1000px)
 
 #info{
   font-size: 16px;
-  position: fixed;
+  /* position: fixed; */
   top:22%;
   left: 40%;
   width: 350px;
   height: 250px;
-  margin: 0px !important;
+  /* margin: 0px !important; */
   padding: 20px;
-  display: none
+  display: none;
+  position: absolute;
 }
 
 .sub-cat > li > a > span{
-  opacity:0
+  /* display: none; */
+  opacity: 0
 }
 
  #info > span{
@@ -189,6 +212,8 @@ transform: translatey(-1000px)
 
  .heading{
    /* font-style: bolder */
+   /* margin-bottom: 20px; */
+
  }
 
 ._{
@@ -196,8 +221,11 @@ transform: translatey(-1000px)
 }
 
 .link, .project{
- font-size: 14px
+ font-size: 12px;
+ /* min-height: 50px;
+ min-width: 500px; */
 }
+
 
 
 .other_project{

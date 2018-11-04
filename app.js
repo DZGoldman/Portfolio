@@ -1,43 +1,72 @@
 //puts each letter in the string into a span div, appends them all into a div
 
 var Descriptions = {
-  trump: "Donald Trump / Mussolini twitter bot. Stores data from Trump's twitter feed and Mussolini's autobiography and uses a Markov chain algorithm to generate tweets in their combined literary style. Built with Ruby on Rails, posgreSQL, and the twitter API. #‎RendereTwitterDiNuovoGrande‬",
+  trump: "Donald Trump / Mussolini twitter bot. Stores data from Trump's twitter feed and Mussolini's autobiography and uses a Markov chain algorithm to generate tweets in their combined literary style. #‎RendereTwitterDiNuovoGrande‬ (Ruby on Rails, postgreSQL)",
 
-  githubdata: 'Github Data: internal tool for for scraping and analyzing data of Github users. Includes features for uploading and exporting CSV files. Primary Technologies: Node-Express, PostgreSQl. Built as independent contract work for Liquid Talent',
+  githubdata: 'Github Data: internal tool for for scraping and analyzing data of Github users. Includes features for uploading and exporting CSV files.Built as independent contract work for Liquid Talent. (Node-Express, PostgreSQl)',
 
-  droptone: 'drop-tone: User-interactive Newtonian piano playing app. If you can come up with a better single sentence description, email me. Final project for the Web Development Immersive course at General Assembly. Primary Technologies: MatterJS, Node.js, Express, and MongoDB.',
+  droptone: 'drop-tone: User-interactive Newtonian piano playing app. If you can come up with a better single sentence description, email me. (MatterJS, Node.js, Express, MongoDB)',
 
-  resume: "Resu-me: Job resume analysis and optimization tool that lets users compare their resumes to successful resumes of their desired job title. Created as part of a team with developers AK Williams and Kerstein Perez. Primary Technologies: D3, CasperJS, Node.js, Express, MongoDB, and Bootstrap.",
+  resume: "Resu-me: Job resume analysis and optimization tool that lets users compare their resumes to successful resumes of their desired job title. Created as part of a team with developers AK Williams and Kerstein Perez. (D3, CasperJS, Node.js, Express, MongoDB)",
 
-  cubonic: "Cubonic: Original logic puzzle app with full CRUD functionality. Primary Technologies: Ruby on Rails (with extensive use of the JS assets and CSS animations), and PostreSQL. As of writing this, only one person (barring myself) has managed to solve all 10 levels.",
+  cubonic: "Cubonic: Original logic puzzle app with full CRUD functionality. As of writing this, only one person (barring myself) has managed to solve all 10 levels. (Ruby on Rails, JQuery animations, postreSQL)",
 
-  freq: "Typography experiment in live text analysis. Provides real time feedback of character frequency and sentence tone. Built with Angular-Node-Express, and uses the Alchemy API for sentiment analysis." ,
+  freq: "Typography experiment in live text analysis. Provides real time feedback of character frequency and sentence tone. (Angular, Node-Express, Alchemy API)" ,
 
-  gameoflife: "Interactve environoment for running Conway's Game of Life. Technologies: JavaScript, HTML/CSS, and jQuery-ui.",
+  gameoflife: "Interactve environoment for running Conway's Game of Life. (JavaScript, HTML/CSS, and jQuery-UI)",
 
-  fireworks: "Fireworks show simulation, built with MatterJS.",
+  fireworks: "Fireworks show simulation (MatterJS)",
 
   sudoku: "Sudoku playing environment, complete with general solving algorithm. My first web app, so go easy. Technologies: JavaScript/Jquery, HTML/CSS. At no point in building this did I actually solve a Sudoku puzzle.",
-  c: '?'
+  c: '?',
+  cryptocanvas: "Coming Soon! Distributed pixel art dAPP on Ethereum (React, truffle-suite, Ethereum)",
+  tetherprinter: "Twitter bot tracking activity of the Tether stablecoin on the omni-layer on the Bitcoin blockchain",
+  verge1: "Technical overview of the mining exploit on the Verge currency in April of 2018; number 1 article on medium the week of publication.",
+  verge2: "Follow up piece explaining the second hack on Verge; wonkier and angier than the first one.",
+  upgoer: "'Upgoer 5 challenge' piece: explanation of a complex topic using only the 1000 most common English words.",
+  dnc: "Account of three days loitering at the 2016 Democratic National Convention",
+  wwta: "My stab at explaining what Blockchain technology is and isn't.",
+  lightning: "Explanations of technical developments in Bitcoin's layer two scaling solution",
+  newmath: "Published in Make Magazine",
+  captives: "Published in Words Without Borders",
+  awsy: "Tracking data on the stablecoins currently on the market, built with Flask & React.",
+  talkcoin: 'Slack bot for tracking cryptocurrency prices; add to slack and message "\\talkcoin" for instructions (Python)',
+  messari: "Lightning piece included in Messari newsletter",
+  cryptochat: "Nouriel Roubini piece included in Cryptochat newsletter",
+  coindesk: "Interviewed for piece on mining exploits",
+  cryptoconomy: "Wide ranging discussion on all things crypto",
+  italian: "Italian translation of Verge hack piece",
+  reconsiderations: "Wacky short story collection I wrote in college"
 }
 
-function spanify(string, div) {
+var badPuncuation = {};
+
+':/,.()'.split('').forEach(function(s){
+  badPuncuation[s] = true
+})
+
+function spanify(div, string) {
+  if (!string){
+    string = div.text();
+    div.text('');
+
+  }
   string.split('').forEach(function(letter) {
-    var letterDiv ;
+    var letterSpan ;
     if (window.morse){
-      letterDiv  = $('<span>').text(morseD[letter])
+      letterSpan  = $('<span>').text(morseD[letter])
     } else{
 
-      letterDiv  = $('<span>').text(letter)
+      letterSpan  = $('<span>').text(letter)
     }
-    letterDiv.attr('original', letter)
+    letterSpan.attr('original', letter)
 
-    if (letter == ':') {
-      letterDiv.addClass('q');
+    if (badPuncuation[letter]) {
+      letterSpan.addClass('q');
     } else {
-      letterDiv.addClass(letter.toLowerCase());
+      letterSpan.addClass(letter.toLowerCase());
     }
-    div.append(letterDiv);
+    div.append(letterSpan);
 
 
   })
@@ -81,40 +110,45 @@ function caseAnimation($node, forward) {
 
 
 $(function() {
+  // $('.sub-cat').detach()
     $info = $('#info')
     console.info("%cLinks aren't all you can click.", 'color: green;');
 
     console.info('%cThis page has unnecessarily elaborate Easter Eggs.', 'color: blue;');
 
     $('._').toggle()
-    spanify('Daniel Goldman', $('#bio'));
-    $('#bio').append('<br>');
-    spanify('Software Developer, Writer', $('#bio'));
+    $('.spanify-this,.project,.heading,#c,#bio-line,.link').each(function(){
+      spanify($(this))
 
-    spanify('Projects', $('#projects-head'));
-    spanify('Github Data', $('#githubdata'));
-    spanify('Donaldo Trumpilini', $('#trump'));
-    spanify('drop-tone', $('#droptone'));
-    spanify('Resu-me', $('#resume'));
-    spanify('Cubonic', $('#cubonic'));
-    spanify('Other Projects', $('#other-head'));
-    spanify('Sudoku', $('#sudoku'))
-    spanify('Fireworks', $('#fireworks'))
-    spanify('Game of Life', $('#gameoflife'))
-    spanify('Freq', $('#freq'));
-    // spanify('Links:', $('#links-head'));
-    spanify('Resume', $('#myresume'));
-    spanify('Github', $('#Github'));
-    spanify('Medium', $('#Medium'));
-    spanify('LinkedIn', $('#LinkedIn'));
-    spanify('Email', $('#email'));
-    spanify('Writing', $('#writing-head'));
-    spanify('Other Writing', $('#other-writing-head'));
-    spanify('Press', $('#press-head'));
-    spanify('Links / Info', $('#links-head'));
+    })
+    // spanify('Daniel Goldman', $('#bio'));
+    // $('#bio').append('<br>');
+    // spanify('Software Developer, Writer', $('#bio'));
 
-      spanify('Writing Portfolio', $('#writing'))
-    spanify('Daniel Goldman 2016', $('#c'))
+    // spanify('Projects', $('#projects-head'));
+    // spanify('Github Data', $('#githubdata'));
+    // spanify('Donaldo Trumpilini', $('#trump'));
+    // spanify('drop-tone', $('#droptone'));
+    // spanify('Resu-me', $('#resume'));
+    // spanify('Cubonic', $('#cubonic'));
+    // spanify('Other Projects', $('#other-head'));
+    // spanify('Sudoku', $('#sudoku'))
+    // spanify('Fireworks', $('#fireworks'))
+    // spanify('Game of Life', $('#gameoflife'))
+    // spanify('Freq', $('#freq'));
+    // // spanify('Links:', $('#links-head'));
+    // spanify('Resume', $('#myresume'));
+    // spanify('Github', $('#Github'));
+    // spanify('Medium', $('#Medium'));
+    // spanify('LinkedIn', $('#LinkedIn'));
+    // spanify('Email', $('#email'));
+    // spanify('Writing', $('#writing-head'));
+    // spanify('Other Writing', $('#other-writing-head'));
+    // spanify('Press', $('#press-head'));
+    // spanify('Links / Info', $('#links-head'));
+
+    //   spanify('Writing Portfolio', $('#writing'))
+    // spanify('Daniel Goldman 2016', $('#c'))
 
 
     var letterClass
@@ -158,8 +192,10 @@ $(function() {
     }
 
     
+
+    // x = $('.sub-cat').detach()
     var currentHeadingId = ''
-    var headingHover = function(e) {
+    var headingClick = function(e) {
      
 
       const $heading = $(this);
@@ -173,10 +209,9 @@ $(function() {
       $('.sub-cat').find('span').each(function(){
         $(this).css('opacity', 0)
       })
-      $heading.animate({
-        'font-size': '18'}, 280)
-      $heading.css('font-weight', 'bolder')
-      
+      // $heading.animate({
+      //   'font-size': '18'}, 280)
+      $heading.css('font-weight', 900)
       const sub = $('#'+id+'-sub')
 
 
@@ -194,10 +229,9 @@ $(function() {
           return
         }
         
-        heading.css('font-weight', 'normal')
+        heading.css('font-weight', 100)
       heading.animate({
           'font-size': '16'}, 280)
-  
 
       })
 
@@ -219,9 +253,9 @@ $(function() {
     }
 
 
-    $('.heading').hover(
+    $('.heading').click(
       //on hover
-      headingHover
+      headingClick
 
     )
 
@@ -239,22 +273,26 @@ $(function() {
     // var currentProjectId= ''
 
     var projectHover = function() {
+      console.log('hover')
       var $project = $(this)
       if ( $info.text() == "") {
         $info.show()
         var id = $project.attr('id')
       
-        $project.css('font-weight', 'bold')
-        
-        $('.project').each(function(){
-          var project = $(this);
-          var projIdLoop = project.attr('id')
-          if (projIdLoop != id){
+        // $project.css('font-weight', 'bold')
+        //       $project.animate({
+        // 'font-size': '14'}, 150)
+        // $('.project').each(function(){
+        //   var project = $(this);
+        //   var projIdLoop = project.attr('id')
+        //   if (projIdLoop != id){
 
-            project.css('font-weight', 'normal')
-          }
-        })
-        spanify(Descriptions[$project.attr('id')], $info)
+        //     // project.css('font-weight', 'normal')
+        //     // project.animate({
+        //     //   'font-size': '12'}, 150)
+        //   }
+        // })
+        spanify($info, Descriptions[$project.attr('id')])
         shimmerOn($info)
     
       }
@@ -351,7 +389,7 @@ $(function() {
 
     })
 
-    $('#bio').click(function (e) {
+    $('#bio, #bio-line').click(function (e) {
       e.preventDefault()
       var $t = $(e.target);
         $(this).children().each(function (i , node) {
