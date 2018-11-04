@@ -1,5 +1,5 @@
 //puts each letter in the string into a span div, appends them all into a div
-
+var $subCats;
 var Descriptions = {
   trump: "Donald Trump / Mussolini twitter bot. Stores data from Trump's twitter feed and Mussolini's autobiography and uses a Markov chain algorithm to generate tweets in their combined literary style. #‎RendereTwitterDiNuovoGrande‬ (Ruby on Rails, postgreSQL)",
 
@@ -193,11 +193,9 @@ $(function() {
 
     
 
-    // x = $('.sub-cat').detach()
     var currentHeadingId = ''
     var headingClick = function(e) {
      
-
       const $heading = $(this);
       const id = $heading.attr('id')
 
@@ -212,11 +210,17 @@ $(function() {
       // $heading.animate({
       //   'font-size': '18'}, 280)
       $heading.css('font-weight', 900)
-      const sub = $('#'+id+'-sub')
+      var targetSubCatId= '#'+id+'-sub'
+      // const sub = $(targetSubCatId)
+      // console.log(x, targetSubCatId)
+      // const sub = x.find(targetSubCatId)
+      const sub = $subCats.eq($heading.attr('i'))
 
 
         // TODO: this kills all hover events...
       // var temp = sub.remove()
+      console.log('??',sub)
+      $subCats.detach()
       $('#sub-cats').prepend(sub)
 
 
@@ -251,7 +255,6 @@ $(function() {
       })
 
     }
-
 
     $('.heading').click(
       //on hover
@@ -446,8 +449,17 @@ $(function() {
         }
       })
     }
-
- 
+     $subCats = $('.sub-cat').detach()
+    // var subCatsHash = {};
+    // var $sub, idt;
+    // console.log('$subCats$subCats$subCats', $subCats.length, $subCats)
+    // $subCats.each(function(index, sub){
+    //   console.log('asdlkfjdsaf',index, sub)
+    //   $sub = $(sub);
+    //   idt.attr('id');
+    //   subCatsHash[id] = $sub
+    // })
+    // console.log('???', subCatsHash)
   }) //end on load
 
 
@@ -582,4 +594,5 @@ function shuffle(a) {
         a[i - 1] = a[j];
         a[j] = x;
     }
+    
 }
