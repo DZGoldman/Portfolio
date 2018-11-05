@@ -56,7 +56,8 @@ var Descriptions = {
   reconsiderations: "Wacky short story collection I wrote in college",
   nouriel: "Response to Nouriel Roubini's testinomy in front of the US Senate Committee on Cryptocurency",
   btcenergy: "Explnataion of the relationship between Bitcoin mining and energy consumption",
-  tether: "Commentary on Tether and Bitfinex"
+  tether: "Commentary on Tether and Bitfinex",
+  hottakes: "Twitter bot for generating hot takes (and only hot takes) about the crypto space"
 };
 
 var badPuncuation = {};
