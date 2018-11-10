@@ -6,29 +6,29 @@
         <description>updates on all my stuff</description>
         <item>
             <title>are we stable yet?</title>
-            <link>URL Link to the entry</link>
-            <guid>awsy2396</guid>
+            <link>https://www.arewestableyet.net/</link>
+            <guid>awsy23435</guid>
             <description>Tracking data on the stablecoins currently on the market</description>
             <pubDate>11/5/2018</pubDate>
         </item>
         <item>
             <title>Mr. Fantastic</title>
             <link>https://blog.theabacus.io/mr-fantastic-a-focused-response-to-nouriel-roubinis-senate-testimony-d008d7304961</link>
-            <guid>mrfantastic456809</guid>
+            <guid>mrfantastic456804359</guid>
             <description>Response to Nouriel Roubini's testinomy in front of the US Senate Committee on Cryptocurency</description>
             <pubDate>10/12/2018</pubDate>
         </item>
         <item>
             <title>Lightning Network 2.0</title>
             <link>https://blog.theabacus.io/lightning-network-2-0-b878b9bb356e</link>
-            <guid>lightningnetwork24508</guid>
+            <guid>lightningnetwork2434508</guid>
             <description>On technical developments in Bitcoin's layer two scaling solution</description>
             <pubDate>8/23/2018</pubDate>
         </item>
         <item>
             <title>Let’s Do the Time Warp Again: The Verge Hack, Part Deux</title>
             <link>https://blog.theabacus.io/lets-do-the-time-warp-again-the-verge-hack-part-deux-c6396ab36ecb</link>
-            <guid>verge28860945</guid>
+            <guid>verge28860934545</guid>
             <description>Follow up piece explaining the second hack on Verge</description>
             <pubDate>6/5/2018</pubDate>
         </item>
