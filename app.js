@@ -45,7 +45,7 @@ var Descriptions = {
   newmath: "Published in Make Magazine",
   captives: "Published in Words Without Borders",
   awsy:
-    "Tracking data on the stablecoins currently on the market, built with Flask & React.",
+    "Tracking data on the stablecoins currently on the market (Flask, React)",
   talkcoin:
     'Slack bot for tracking cryptocurrency prices; add to slack and message "\\talkcoin" for instructions (Python)',
   messari: "Lightning piece included in Messari newsletter",
@@ -57,7 +57,8 @@ var Descriptions = {
   nouriel: "Response to Nouriel Roubini's testinomy in front of the US Senate Committee on Cryptocurency",
   btcenergy: "Explnataion of the relationship between Bitcoin mining and energy consumption",
   tether: "Commentary on Tether and Bitfinex",
-  hottakes: "Twitter bot for generating hot takes (and only hot takes) about the crypto space"
+  hottakes: "Twitter bot for generating hot takes (and only hot takes) about the crypto space",
+  soundmoney: "Bitcoin paper wallet generator using audio entropy (react-mic, bitcoin-js)"
 };
 
 var badPuncuation = {};

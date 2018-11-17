@@ -4,6 +4,13 @@
         <title>daniel goldman</title>
         <link>https://danielzgoldman.com/</link>
         <description>updates on all my stuff</description>
+                <item>
+            <title>sound money</title>
+            <link>https://soundmoney.herokuapp.com/</link>
+            <guid>soundmoney128764</guid>
+            <description>Bitcoin paper wallet generator using audio entropy</description>
+            <pubDate>11/17/2018</pubDate>
+        </item>
         <item>
             <title>are we stable yet?</title>
             <link>https://www.arewestableyet.net/</link>
