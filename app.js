@@ -58,7 +58,8 @@ var Descriptions = {
   btcenergy: "Explnataion of the relationship between Bitcoin mining and energy consumption",
   tether: "Commentary on Tether and Bitfinex",
   hottakes: "Twitter bot for generating hot takes (and only hot takes) about the crypto space",
-  soundmoney: "Bitcoin paper wallet generator using audio entropy (react-mic, bitcoin-js)"
+  soundmoney: "Bitcoin paper wallet generator using audio entropy (react-mic, bitcoin-js)",
+  cryptoterms: "Piece the confusing state of the terms we're currently stuck with the crypto space"
 };
 
 var badPuncuation = {};
