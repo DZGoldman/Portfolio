@@ -4,6 +4,13 @@
         <title>daniel goldman</title>
         <link>https://danielzgoldman.com/</link>
         <description>updates on all my stuff</description>
+                 <item>
+            <title>Are We Decentralized Yet</title>
+            <link>http://arewedecentralizedyet.com</link>
+            <guid>awdy234234</guid>
+            <description>"Data aggregation for top cryptocurrencies; initally created owned by Dogecoin creator Jackson Palmer (now owned and revamped by me)"</description>
+            <pubDate>3/19/2019</pubDate>
+        </item>
          <item>
             <title>Understanding Plasma, Part 1: The “Basics” </title>
             <link>https://www.theblockcrypto.com/2019/02/07/understanding-plasma-part-1-the-basics/</link>
