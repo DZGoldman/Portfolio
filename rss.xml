@@ -4,7 +4,14 @@
         <title>daniel goldman</title>
         <link>https://danielzgoldman.com/</link>
         <description>updates on all my stuff</description>
-                 <item>
+                    <item>
+            <title>Newsletter</title>
+            <link>https://dzack23.substack.com/archive</link>
+            <guid>substack2lkjsd;f</guid>
+            <description>Deprecating this RSS feed in favor of the newsletter; the archieve page also works as an RSS. Subscribe!</description>
+            <pubDate>3/29/2019</pubDate>
+        </item>
+            <item>
             <title>Are We Decentralized Yet</title>
             <link>http://arewedecentralizedyet.com</link>
             <guid>awdy234234</guid>
