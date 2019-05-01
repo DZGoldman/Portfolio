@@ -61,7 +61,8 @@ var Descriptions = {
   soundmoney: "Bitcoin paper wallet generator using audio entropy (react-mic, bitcoin-js)",
   cryptoterms: "On the confusing state of the terms we're currently stuck with the crypto space",
   plasma: "Three part series for The Block on Plasma technology.",
-  awdy: "Data aggregation for top cryptocurrencies; initally created owned by Dogecoin creator Jackson Palmer (now owned and revamped by me)"
+  awdy: "Data aggregation for top cryptocurrencies; initally created owned by Dogecoin creator Jackson Palmer (now owned and revamped by me)",
+  ethereum: "'Understanding Plasma' piece top link for Plasma resources on ethereum.org"
 };
 
 var badPuncuation = {};
