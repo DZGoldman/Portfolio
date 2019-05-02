@@ -330,8 +330,11 @@ $(function() {
       morseCodify();
     }
   });
-
-  var localStorage = window.localStorage;
+  try {
+    var localStorage = window.localStorage;
+  } catch {
+    localStorage = null
+  }
   if (localStorage) {
     if (!localStorage["clickCount"]) {
       localStorage["clickCount"] = 5;
