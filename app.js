@@ -62,7 +62,8 @@ var Descriptions = {
   cryptoterms: "On the confusing state of the terms we're currently stuck with the crypto space",
   plasma: "Three part series for The Block on Plasma technology.",
   awdy: "Data aggregation for top cryptocurrencies; initally created owned by Dogecoin creator Jackson Palmer (now owned and revamped by me)",
-  ethereum: "'Understanding Plasma' piece top link for Plasma resources on ethereum.org"
+  ethereum: "'Understanding Plasma' piece top link for Plasma resources on ethereum.org",
+  "ln-junkies": "Discussion on layer 2 constructions, Bitcoin & Ethereum tribalism, social dynamics of protocol changes, and more"
 };
 
 var badPuncuation = {};
