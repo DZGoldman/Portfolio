@@ -41,15 +41,13 @@ var Descriptions = {
     "Account of three days loitering at the 2016 Democratic National Convention",
   wwta: "My stab at explaining what Blockchain technology is and isn't.",
   lightning:
-    "Explanations of technical developments in Bitcoin's layer two scaling solution",
+    "Explanations of technical developments in Bitcoin's layer two scaling solution (featured in Messari newsletter)",
   newmath: "Published in Make Magazine",
   captives: "Published in Words Without Borders",
   awsy:
     "Tracking data on the stablecoins currently on the market (Flask, React)",
   talkcoin:
     'Slack bot for tracking cryptocurrency prices; add to slack and message "\\talkcoin" for instructions (Python)',
-  messari: "Lightning piece included in Messari newsletter",
-  cryptochat: "Nouriel Roubini piece included in Cryptochat newsletter",
   coindesk: "Interviewed for piece on mining exploits",
   cryptoconomy: "Wide ranging discussion on all things crypto",
   italian: "Italian translation of Verge hack piece",
@@ -63,7 +61,8 @@ var Descriptions = {
   plasma: "Three part series for The Block on Plasma technology.",
   awdy: "Data aggregation for top cryptocurrencies; initally created owned by Dogecoin creator Jackson Palmer (now owned and revamped by me)",
   ethereum: "'Understanding Plasma' piece top link for Plasma resources on ethereum.org",
-  "ln-junkies": "Discussion on layer 2 constructions, Bitcoin & Ethereum tribalism, social dynamics of protocol changes, and more"
+  "ln-junkies": "Discussion on layer 2 constructions, Bitcoin & Ethereum tribalism, social dynamics of protocol changes, and more",
+  ethcritique: "A handy guide for Bitoiners (featured in Bankless Newsletter)"
 };
 
 var badPuncuation = {};
