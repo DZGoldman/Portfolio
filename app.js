@@ -62,7 +62,8 @@ var Descriptions = {
   awdy: "Data aggregation for top cryptocurrencies; initally created owned by Dogecoin creator Jackson Palmer (now owned and revamped by me)",
   ethereum: "'Understanding Plasma' piece top link for Plasma resources on ethereum.org",
   "ln-junkies": "Discussion on layer 2 constructions, Bitcoin & Ethereum tribalism, social dynamics of protocol changes, and more",
-  ethcritique: "A handy guide for Bitoiners (featured in Bankless Newsletter)"
+  ethcritique: "A handy guide for Bitoiners (featured in Bankless Newsletter)",
+  rollup: "Overview of Optimistic Rollup tech, commissioned by MolochDao"
 };
 
 var badPuncuation = {};
