@@ -63,7 +63,8 @@ var Descriptions = {
   ethereum: "'Understanding Plasma' piece top link for Plasma resources on ethereum.org",
   "ln-junkies": "Discussion on layer 2 constructions, Bitcoin & Ethereum tribalism, social dynamics of protocol changes, and more",
   ethcritique: "A handy guide for Bitoiners (featured in Bankless Newsletter)",
-  rollup: "Overview of Optimistic Rollup tech, commissioned by MolochDao"
+  rollup: "Overview of Optimistic Rollup tech, commissioned by MolochDao",
+  defirollup: "Thoughts on scaling the DeFi ecosystem, written for the Bankless newsletter"
 };
 
 var badPuncuation = {};
