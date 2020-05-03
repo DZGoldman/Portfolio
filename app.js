@@ -64,7 +64,8 @@ var Descriptions = {
   "ln-junkies": "Discussion on layer 2 constructions, Bitcoin & Ethereum tribalism, social dynamics of protocol changes, and more",
   ethcritique: "A handy guide for Bitoiners (featured in Bankless Newsletter)",
   rollup: "Overview of Optimistic Rollup tech, commissioned by MolochDao",
-  defirollup: "Thoughts on scaling the DeFi ecosystem, written for the Bankless newsletter"
+  defirollup: "Thoughts on scaling the DeFi ecosystem, written for the Bankless newsletter",
+  "keyword-crypto": "Wide ranging dicussion on Keyword: Crypto podcast"
 };
 
 var badPuncuation = {};
