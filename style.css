@@ -341,3 +341,26 @@ span{
 
 }
 
+#spaceship-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+#rocket-emoji {
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+
+#spaceship-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+#gattaca-spaceship {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+
+
