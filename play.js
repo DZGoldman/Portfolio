@@ -235,6 +235,38 @@ $(function () {
     );
 
     $('span[isLetter="true"]').css("color", "white");
+    
+    // Start heading drifting animation
+    startHeadingDrift();
+  };
+  
+  const startHeadingDrift = () => {
+    $('li.heading').each(function(index, el) {
+      const $heading = $(el);
+      console.log('text', $heading.text());
+      
+      const driftDistance = $(window).width()/2 + (Math.random() * 40); // 300-340 pixels drift
+      const driftDuration = 10000 + (Math.random() * 3000); // 10-13 seconds
+      const delay = index * 500; // Stagger by 200ms
+      
+      // Start the drifting animation after a delay
+      setTimeout(() => {
+        const driftLoop = () => {
+          // Drift right
+          $heading.animate({
+            left: '+=' + driftDistance + 'px'
+          }, driftDuration, 'swing', () => {
+            // Drift left
+            $heading.animate({
+              left: '-=' + driftDistance + 'px'
+            }, driftDuration, 'swing', driftLoop);
+          });
+        };
+        
+        // Start the drift loop
+        driftLoop();
+      }, delay);
+    });
   };
 
   $(document).keydown(function (e) {

@@ -199,7 +199,7 @@ transform: translatey(-1000px)
   transform: rotate(3600deg)
 }
 
-#links-head, #projects-head, #bio, #other-head{
+#links-head, #projects-head, #bio, #other-head, #press-head, #other-writing-head, #writing-head{
   /* font-weight: bolder; */
   position: relative;
 }
