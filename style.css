@@ -52,6 +52,9 @@ a, a:visited {
   text-decoration: none;
   color: black;
 }
+#writing-head .heading{
+  cursor: grab;
+}
 
 #wrapper{
   display: flex;
