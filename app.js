@@ -413,7 +413,6 @@ function spanify(div, string) {
       letterSpan = $("<span>").text(letter);
     }
     letterSpan.attr("original", letter);
-    letterSpan.addClass("letter");
     if (badPuncuation[letter]) {
       letterSpan.addClass("q");
     } else {
