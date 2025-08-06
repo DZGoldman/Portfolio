@@ -11,7 +11,6 @@ $(function () {
   }
 
   $("#guilaga-head").on("click", function () {
-    $(this).hide()
     if (!gameStarted) {
       startGame();
     }
@@ -179,7 +178,7 @@ $(function () {
       font-family: 'Courier New', 'Lucida Console', monospace;
       font-size: 20px;
       font-weight: bold;
-      color: white;
+      color: black;
       z-index: 9999;
       text-align: center;
     ">HIGH: ${highScore.toString().padStart(6, '0')}</div>`);
@@ -664,6 +663,7 @@ $(function () {
     $("#sub-cats").empty(); // Clear sub-categories
     $("#info").empty()
     $("#c").empty()
+    $("#guilaga-head").hide()
     // Disable all mouse interactions during the game
     $('head').append(`<style id="disable-mouse">
       * { pointer-events: none !important; }
