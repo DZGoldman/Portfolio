@@ -404,6 +404,7 @@ $(function () {
         font-size: 64px;
         font-weight: bold;
         margin-bottom: 40px;
+        color: white;
         text-align: center;
       ">GAME OVER</div>
       ${isNewHighScore ? `<div style="
@@ -593,23 +594,27 @@ $(function () {
 
         // Create explosion at ship position
         const shipOffset = ship.offset();
-        const explosion = $(`<img class="explosion" src="images/explosion.webp" style="
+        const explosion = $(`<div class="explosion" style="
           position: absolute;
-          left: ${shipOffset.left + ship.width() / 2 - 50}px;
-          top: ${shipOffset.top + ship.height() / 2 - 50}px;
-          width: 100px;
-          height: 100px;
+          left: ${shipOffset.left + ship.width() / 2 - 25}px;
+          top: ${shipOffset.top + ship.height() / 2 - 25}px;
+          width: 50px;
+          height: 50px;
+          background-color: #ff6600;
+          border-radius: 50%;
           z-index: 9999;
           animation: explode 0.5s ease-out;
-        ">`);
+        "></div>`);
 
         // Add explosion animation keyframes to head if not already added
         if (!$('head').find('style[data-explosion]').length) {
           $('head').append(`<style data-explosion>
             @keyframes explode {
-              0% { transform: scale(0.1); opacity: 1; }
-              50% { transform: scale(1.5); opacity: 0.8; }
-              100% { transform: scale(3); opacity: 0; }
+              0% { transform: scale(0.1); opacity: 1; background-color: #ff6600; }
+              25% { transform: scale(1); opacity: 0.9; background-color: #ff3300; }
+              50% { transform: scale(2); opacity: 0.7; background-color: #ffff00; }
+              75% { transform: scale(3); opacity: 0.4; background-color: #ff9900; }
+              100% { transform: scale(4); opacity: 0; background-color: #ff0000; }
             }
           </style>`);
         }
@@ -634,7 +639,9 @@ $(function () {
         } else {
           // Game over
           setTimeout(() => {
-            gameOver();
+            if (!gameOverState) {
+              gameOver();
+            }
           }, 1500);
         }
 
