@@ -260,11 +260,23 @@ $(function () {
           width: 100px;
           height: 100px;
           z-index: 9999;
+          animation: explode 0.5s ease-out;
         ">`);
+
+        // Add explosion animation keyframes to head if not already added
+        if (!$('head').find('style[data-explosion]').length) {
+          $('head').append(`<style data-explosion>
+            @keyframes explode {
+              0% { transform: scale(0.1); opacity: 1; }
+              50% { transform: scale(1.5); opacity: 0.8; }
+              100% { transform: scale(3); opacity: 0; }
+            }
+          </style>`);
+        }
 
         $('body').append(explosion);
 
-        // Hide ship and remove explosion after brief display
+        // Hide ship and remove explosion after animation
         ship.hide();
         setTimeout(() => {
           explosion.remove();
