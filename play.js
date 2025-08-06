@@ -479,7 +479,7 @@ $(function () {
           launchRandomLetter();
         }, (i + 1) * Math.floor(Math.random() * 3 + 1) * 1000);
       }
-    }, 5000);
+    }, 4000);
   };
 
   const launchRandomLetter = () => {
