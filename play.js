@@ -25,6 +25,21 @@ $(function () {
   let lives = 3; // Player lives
   let highScore = localStorage.getItem('spaceshipHighScore') || 0;
   let gameOverState = false; // Track if game is over
+  let soundEnabled = true; // Sound toggle state
+
+  // Function to play audio conditionally
+  const playAudio = (audioFile) => {
+    if (soundEnabled && !gameOverState) {
+      var audio = new Audio(audioFile);
+      audio.play();
+    }
+  };
+
+  // Function to play game over audio (always plays regardless of toggle)
+  const playGameOverAudio = (audioFile) => {
+    var audio = new Audio(audioFile);
+    audio.play();
+  };
 
   // Get screen boundaries
   const getScreenBounds = () => {
@@ -64,10 +79,7 @@ $(function () {
     lastShotTime = currentTime;
 
     const shipOffset = ship.offset();
-    var audio = new Audio("audio/laser.mov");
-    if (!gameOverState) {
-      audio.play();
-    }
+    playAudio("audio/laser.mov");
 
     // Calculate bullet position based on ship's current visual position
     const bulletX = (shipOffset ? shipOffset.left : 0) + ship.width() / 2;
@@ -106,10 +118,7 @@ $(function () {
           bulletRect.top < letterRect.bottom &&
           bulletRect.bottom > letterRect.top
         ) {
-          var audio = new Audio("audio/hit.mov");
-          if (!gameOverState) {
-            audio.play();
-          }
+          playAudio("audio/hit.mov");
           $(this).remove();
           bullet.remove();
           clearInterval(bulletAnimation);
@@ -301,6 +310,36 @@ $(function () {
   };
   
 
+  const createSoundIcon = () => {
+    const soundIcon = $(`<div id="sound-icon" style="
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-family: 'Courier New', 'Lucida Console', monospace;
+      font-size: 32px;
+      font-weight: bold;
+      z-index: 9999;
+      cursor: pointer;
+      user-select: none;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    ">${soundEnabled ? '🔊' : '🔇'}</div>`);
+    
+    // Make the icon clickable to toggle sound
+    soundIcon.click(() => {
+      soundEnabled = !soundEnabled;
+      updateSoundIcon();
+    });
+    
+    $('body').append(soundIcon);
+  };
+
+  const updateSoundIcon = () => {
+    const soundIcon = $("#sound-icon");
+    if (soundIcon.length) {
+      soundIcon.text(soundEnabled ? '🔊' : '🔇');
+    }
+  };
+
   const createLivesDisplay = () => {
     const livesDisplay = $(`<div id="lives-display" style="
       position: fixed;
@@ -385,8 +424,7 @@ $(function () {
     gameOverState = true;
     
     // Play game over audio
-    var gameOverAudio = new Audio("audio/gameover.mp3");
-    gameOverAudio.play();
+    playGameOverAudio("audio/gameover.mp3");
     
     // Check if new high score was achieved
     const isNewHighScore = updateHighScore();
@@ -512,10 +550,7 @@ $(function () {
       zIndex: 999,
     });
 
-    var audio = new Audio("audio/arc.mov");
-    if (!gameOverState) {
-      audio.play();
-    }
+    playAudio("audio/arc.mov");
 
     // Remove original and add flying version
     randomSpan.css("visibility", "hidden");
@@ -593,10 +628,7 @@ $(function () {
         letterRect.bottom > shipRect.top
       ) {
         console.log("collide");
-        var audio = new Audio("audio/dead.wav");
-        if (!gameOverState) {
-          audio.play();
-        }
+        playAudio("audio/dead.wav");
 
         // Create explosion at ship position
         const shipOffset = ship.offset();
@@ -671,8 +703,7 @@ $(function () {
     </style>`);
     
     // Empty function for now
-    var audio = new Audio("audio/game_intro.mp3");
-    audio.play();
+    playGameOverAudio("audio/game_intro.mp3");
 
     // Create Player 1 text
     const playerText = $(`<div id="player-text" style="
@@ -699,7 +730,7 @@ $(function () {
       z-index: 9999;
       text-align: center;
       margin-top: 20px;
-    ">[←] [→] MOVE &nbsp;&nbsp;&nbsp; [SPACE] FIRE &nbsp;&nbsp;&nbsp; [Q] QUIT</div>`);
+    ">[↑] [↓] [←] [→] MOVE &nbsp;&nbsp;&nbsp; [SPACE] FIRE &nbsp;&nbsp;&nbsp; [S] SOUND &nbsp;&nbsp;&nbsp; [Q] QUIT</div>`);
 
     $("body").append(playerText);
     $("body").append(controlsText);
@@ -720,6 +751,7 @@ $(function () {
           createScoreDisplay(); // Create score display
           createHighScoreDisplay(); // Create high score display
           createLivesDisplay(); // Create lives display
+          createSoundIcon(); // Create sound icon
           startHeadingDrift();
           startLaunchRandomLetters()
         });
@@ -810,6 +842,10 @@ $(function () {
         break;
       case 81: // q key - quit game
         location.reload();
+        break;
+      case 83: // s key - toggle sound
+        soundEnabled = !soundEnabled;
+        updateSoundIcon();
         break;
       case 37: // left arrow
         spaceshipX = Math.max(bounds.minX, spaceshipX - SHIFT);

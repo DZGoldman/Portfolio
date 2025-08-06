@@ -68,7 +68,7 @@ var Descriptions = {
   rollup: "Overview of Optimistic Rollup tech, commissioned by MolochDao",
   defirollup: "Thoughts on scaling the DeFi ecosystem, written for the Bankless newsletter",
   "keyword-crypto": "Wide ranging dicussion on Keyword: Crypto podcast",
-  guilaga: "Press shift + s to start.",
+  guilaga: "Press shift + s to start (sound on)",
   bio: bio,
   "bio-line": bio
 };
