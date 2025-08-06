@@ -581,7 +581,7 @@ $(function () {
       z-index: 9999;
       text-align: center;
       margin-top: 20px;
-    ">[←] [→] MOVE &nbsp;&nbsp;&nbsp; [SPACE] FIRE</div>`);
+    ">[←] [→] MOVE &nbsp;&nbsp;&nbsp; [SPACE] FIRE &nbsp;&nbsp;&nbsp; [Q] QUIT</div>`);
 
     $("body").append(playerText);
     $("body").append(controlsText);
@@ -689,6 +689,9 @@ $(function () {
     switch (e.which) {
       case 80: // p key
         launchRandomLetter();
+        break;
+      case 81: // q key - quit game
+        location.reload();
         break;
       case 37: // left arrow
         spaceshipX = Math.max(bounds.minX, spaceshipX - SHIFT);
