@@ -15,7 +15,7 @@ $(function () {
   let spaceshipY = 0;
   let gameStarted = false; // Game state variable
   let score = 0; // Game score
-  let lives = 1; // Player lives
+  let lives = 3; // Player lives
   let highScore = localStorage.getItem('spaceshipHighScore') || 0;
   let gameOverState = false; // Track if game is over
 
@@ -317,16 +317,28 @@ $(function () {
         margin-bottom: 40px;
         text-align: center;
       ">FINAL SCORE: ${score.toString().padStart(6, '0')}</div>
-      <button id="restart-button" style="
-        font-family: 'Courier New', 'Lucida Console', monospace;
-        font-size: 24px;
-        font-weight: bold;
-        color: white;
-        background-color: #333;
-        border: 2px solid white;
-        padding: 15px 30px;
-        cursor: pointer;
-      ">PLAY AGAIN</button>
+      <div style="display: flex; gap: 20px;">
+        <button id="restart-button" style="
+          font-family: 'Courier New', 'Lucida Console', monospace;
+          font-size: 24px;
+          font-weight: bold;
+          color: white;
+          background-color: #333;
+          border: 2px solid white;
+          padding: 15px 30px;
+          cursor: pointer;
+        ">PLAY AGAIN</button>
+        <button id="quit-button" style="
+          font-family: 'Courier New', 'Lucida Console', monospace;
+          font-size: 24px;
+          font-weight: bold;
+          color: white;
+          background-color: #666;
+          border: 2px solid white;
+          padding: 15px 30px;
+          cursor: pointer;
+        ">QUIT</button>
+      </div>
     </div>`);
     
     // Add blinking animation for new high score
@@ -345,6 +357,11 @@ $(function () {
     $('#restart-button').click(() => {
       localStorage.setItem('restartGame', 'true');
       location.reload();
+    });
+    
+    // Add click handler to quit button
+    $('#quit-button').click(() => {
+      location.reload(); // Just reload without restart flag
     });
   };
 
