@@ -7,6 +7,8 @@ $(function () {
   let gameStarted = false; // Game state variable
   let score = 0; // Game score
   let lives = 3; // Player lives
+  let highScore = localStorage.getItem('spaceshipHighScore') || 0;
+  let gameOverState = false; // Track if game is over
 
   // Get screen boundaries
   const getScreenBounds = () => {
@@ -47,7 +49,9 @@ $(function () {
 
     const shipOffset = ship.offset();
     var audio = new Audio("audio/laser.mov");
-    audio.play();
+    if (!gameOverState) {
+      audio.play();
+    }
 
     // Calculate bullet position based on ship's current visual position
     const bulletX = (shipOffset ? shipOffset.left : 0) + ship.width() / 2;
@@ -87,7 +91,9 @@ $(function () {
           bulletRect.bottom > letterRect.top
         ) {
           var audio = new Audio("audio/hit.mov");
-          audio.play();
+          if (!gameOverState) {
+            audio.play();
+          }
           $(this).remove();
           bullet.remove();
           clearInterval(bulletAnimation);
@@ -96,6 +102,16 @@ $(function () {
           // Increase score
           score += 1;
           updateScoreDisplay();
+          
+          // Check for real-time high score update
+          if (score > highScore) {
+            highScore = score;
+            localStorage.setItem('spaceshipHighScore', highScore);
+            const highScoreElement = $("#high-score-display");
+            if (highScoreElement.length) {
+              highScoreElement.text(`HIGH: ${highScore.toString().padStart(6, '0')}`);
+            }
+          }
           
           return false; // Break out of .each()
         }
@@ -133,6 +149,36 @@ $(function () {
     ">000000</div>`);
     
     $('body').append(scoreDisplay);
+  };
+
+  const createHighScoreDisplay = () => {
+    const highScoreDisplay = $(`<div id="high-score-display" style="
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Courier New', 'Lucida Console', monospace;
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      z-index: 9999;
+      text-align: center;
+    ">HIGH: ${highScore.toString().padStart(6, '0')}</div>`);
+    
+    $('body').append(highScoreDisplay);
+  };
+
+  const updateHighScore = () => {
+    if (score > highScore) {
+      highScore = score;
+      localStorage.setItem('spaceshipHighScore', highScore);
+      const highScoreElement = $("#high-score-display");
+      if (highScoreElement.length) {
+        highScoreElement.text(`HIGH: ${highScore.toString().padStart(6, '0')}`);
+      }
+      return true; // New high score achieved
+    }
+    return false; // No new high score
   };
   
 
@@ -214,6 +260,16 @@ $(function () {
   };
 
   const gameOver = () => {
+    // Set game over state to prevent new audio
+    gameOverState = true;
+    
+    // Play game over audio
+    var gameOverAudio = new Audio("audio/gameover.mp3");
+    gameOverAudio.play();
+    
+    // Check if new high score was achieved
+    const isNewHighScore = updateHighScore();
+    
     // Show game over screen
     const gameOverScreen = $(`<div id="game-over-screen" style="
       position: fixed;
@@ -236,6 +292,15 @@ $(function () {
         margin-bottom: 40px;
         text-align: center;
       ">GAME OVER</div>
+      ${isNewHighScore ? `<div style="
+        font-family: 'Courier New', 'Lucida Console', monospace;
+        font-size: 48px;
+        font-weight: bold;
+        color: #ffff00;
+        margin-bottom: 30px;
+        text-align: center;
+        animation: blink 1s infinite;
+      ">NEW HIGH SCORE!</div>` : ''}
       <div style="
         font-family: 'Courier New', 'Lucida Console', monospace;
         font-size: 32px;
@@ -254,6 +319,16 @@ $(function () {
         cursor: pointer;
       ">PLAY AGAIN</button>
     </div>`);
+    
+    // Add blinking animation for new high score
+    if (isNewHighScore && !$('head').find('style[data-blink]').length) {
+      $('head').append(`<style data-blink>
+        @keyframes blink {
+          0%, 50% { opacity: 1; }
+          51%, 100% { opacity: 0.3; }
+        }
+      </style>`);
+    }
     
     $('body').append(gameOverScreen);
     
@@ -299,7 +374,9 @@ $(function () {
     });
 
     var audio = new Audio("audio/arc.mov");
-    audio.play();
+    if (!gameOverState) {
+      audio.play();
+    }
 
     // Remove original and add flying version
     randomSpan.css("visibility", "hidden");
@@ -378,7 +455,9 @@ $(function () {
       ) {
         console.log("collide");
         var audio = new Audio("audio/dead.wav");
-        audio.play();
+        if (!gameOverState) {
+          audio.play();
+        }
 
         // Create explosion at ship position
         const shipOffset = ship.offset();
@@ -484,6 +563,7 @@ $(function () {
           controlsText.remove();
           gameStarted = true; // Enable game controls
           createScoreDisplay(); // Create score display
+          createHighScoreDisplay(); // Create high score display
           createLivesDisplay(); // Create lives display
           startHeadingDrift();
           startLaunchRandomLetters()
