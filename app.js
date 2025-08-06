@@ -1,5 +1,7 @@
 //puts each letter in the string into a span div, appends them all into a div
 var $subCats;
+
+const bio = "This is my bio todo"
 var Descriptions = {
   trump:
     "Donald Trump / Mussolini twitter bot. Stores data from Trump's twitter feed and Mussolini's autobiography and uses a Markov chain algorithm to generate tweets in their combined literary style. #‎RendereTwitterDiNuovoGrande‬ (Ruby on Rails, postgreSQL)",
@@ -66,7 +68,9 @@ var Descriptions = {
   rollup: "Overview of Optimistic Rollup tech, commissioned by MolochDao",
   defirollup: "Thoughts on scaling the DeFi ecosystem, written for the Bankless newsletter",
   "keyword-crypto": "Wide ranging dicussion on Keyword: Crypto podcast",
-  guilaga: "Press shift + s to start."
+  guilaga: "Press shift + s to start.",
+  bio: bio,
+  "bio-line": bio
 };
 
 var badPuncuation = {};
@@ -122,6 +126,20 @@ $(function() {
 
     shimmerOn(sub);
   };
+
+
+
+    // $("#bio, #bio-line").hover(()=>{
+    //   console.log('??');
+      
+    // });
+
+  //    $(".project").mouseleave(function() {
+  //   $info.empty();
+  //   // $info.hide();
+  // });
+
+
   $(".heading").click(
     //on hover
     headingClick
@@ -137,7 +155,7 @@ $(function() {
       shimmerOn($info);
     }
   };
-  $(".project").hover(projectHover);
+  $(".project,#bio,#bio-line").hover(projectHover);
 
   var onHover = function(e) {
     if (isMobile()) return;
@@ -172,7 +190,7 @@ $(function() {
     offHover
   );
 
-  $(".project").mouseleave(function() {
+  $(".project,#bio,#bio-line").mouseleave(function() {
     $info.empty();
     // $info.hide();
   });
