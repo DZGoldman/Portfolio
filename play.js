@@ -5,6 +5,7 @@ $(function () {
   let spaceshipX = 0;
   let spaceshipY = 0;
   let gameStarted = false; // Game state variable
+  let score = 0; // Game score
 
   // Get screen boundaries
   const getScreenBounds = () => {
@@ -90,6 +91,11 @@ $(function () {
           bullet.remove();
           clearInterval(bulletAnimation);
           hit = true;
+          
+          // Increase score
+          score += 1;
+          updateScoreDisplay();
+          
           return false; // Break out of .each()
         }
       });
@@ -103,6 +109,29 @@ $(function () {
         }
       }
     }, 50);
+  };
+
+  const updateScoreDisplay = () => {
+    const scoreElement = $("#score-display");
+    if (scoreElement.length) {
+      scoreElement.text(`${score.toString().padStart(6, '0')}`);
+    }
+  };
+
+  const createScoreDisplay = () => {
+    const scoreDisplay = $(`<div id="score-display" style="
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      font-family: 'Courier New', 'Lucida Console', monospace;
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+      z-index: 9999;
+      text-align: right;
+    ">000000</div>`);
+    
+    $('body').append(scoreDisplay);
   };
 
   const startLaunchRandomLetters = () => {
@@ -220,8 +249,40 @@ $(function () {
       ) {
         console.log("collide");
         var audio = new Audio("audio/dead.wav");
-
         audio.play();
+
+        // Create explosion at ship position
+        const shipOffset = ship.offset();
+        const explosion = $(`<div class="explosion" style="
+          position: absolute;
+          left: ${shipOffset.left + ship.width() / 2 - 25}px;
+          top: ${shipOffset.top + ship.height() / 2 - 25}px;
+          width: 50px;
+          height: 50px;
+          background: radial-gradient(circle, #ff6600 0%, #ff0000 30%, #ffff00 60%, transparent 100%);
+          border-radius: 50%;
+          z-index: 9999;
+          animation: explode 0.5s ease-out;
+        "></div>`);
+
+        // Add explosion animation keyframes to head if not already added
+        if (!$('head').find('style[data-explosion]').length) {
+          $('head').append(`<style data-explosion>
+            @keyframes explode {
+              0% { transform: scale(0.1); opacity: 1; }
+              50% { transform: scale(1.5); opacity: 0.8; }
+              100% { transform: scale(3); opacity: 0; }
+            }
+          </style>`);
+        }
+
+        $('body').append(explosion);
+
+        // Hide ship and remove explosion after animation
+        ship.hide();
+        setTimeout(() => {
+          explosion.remove();
+        }, 500);
 
         flyingSpan.remove();
         randomSpan.remove();
@@ -279,6 +340,7 @@ $(function () {
         controlsText.fadeOut(500, () => {
           controlsText.remove();
           gameStarted = true; // Enable game controls
+          createScoreDisplay(); // Create score display
           startHeadingDrift();
           startLaunchRandomLetters()
         });
