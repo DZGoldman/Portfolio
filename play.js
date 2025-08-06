@@ -6,6 +6,7 @@ $(function () {
   let spaceshipY = 0;
   let gameStarted = false; // Game state variable
   let score = 0; // Game score
+  let lives = 3; // Player lives
 
   // Get screen boundaries
   const getScreenBounds = () => {
@@ -132,6 +133,134 @@ $(function () {
     ">000000</div>`);
     
     $('body').append(scoreDisplay);
+  };
+  
+
+  const createLivesDisplay = () => {
+    const livesDisplay = $(`<div id="lives-display" style="
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      font-family: 'Courier New', 'Lucida Console', monospace;
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+    "></div>`);
+    
+    // Add ship icons for each life
+    for (let i = 0; i < lives-1; i++) {
+      const shipIcon = $(`<img src="images/cartoon-rocket.png" style="
+        width: 50px;
+        height: 50px;
+        margin-left: 8px;
+      ">`);
+      livesDisplay.append(shipIcon);
+    }
+    
+    $('body').append(livesDisplay);
+  };
+
+  const updateLivesDisplay = () => {
+    const livesElement = $("#lives-display");
+    if (livesElement.length) {
+      // Clear existing content and rebuild
+      livesElement.empty();
+      livesElement.append('');
+      
+      // Add ship icons for remaining lives
+      for (let i = 0; i < lives-1; i++) {
+        const shipIcon = $(`<img src="images/cartoon-rocket.png" style="
+          width: 50px;
+          height: 50px;
+          margin-left: 8px;
+        ">`);
+        livesElement.append(shipIcon);
+      }
+    }
+  };
+
+  const respawnShip = () => {
+    // Reset ship position
+    spaceshipX = 0;
+    spaceshipY = 0;
+    ship.css("transform", `translate(${spaceshipX}px, ${spaceshipY}px)`);
+    
+    // Show "READY" text
+    const readyText = $(`<div id="ready-text" style="
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Courier New', 'Lucida Console', monospace;
+      font-size: 48px;
+      font-weight: bold;
+      color: white;
+      z-index: 9999;
+      text-align: center;
+    ">READY</div>`);
+    
+    $('body').append(readyText);
+    
+    // Show ship and remove ready text after 2 seconds
+    setTimeout(() => {
+      readyText.fadeOut(500, () => {
+        readyText.remove();
+      });
+      ship.show();
+    }, 2000);
+  };
+
+  const gameOver = () => {
+    // Show game over screen
+    const gameOverScreen = $(`<div id="game-over-screen" style="
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.9);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+    ">
+      <div style="
+        font-family: 'Courier New', 'Lucida Console', monospace;
+        font-size: 64px;
+        font-weight: bold;
+        color: white;
+        margin-bottom: 40px;
+        text-align: center;
+      ">GAME OVER</div>
+      <div style="
+        font-family: 'Courier New', 'Lucida Console', monospace;
+        font-size: 32px;
+        color: white;
+        margin-bottom: 40px;
+        text-align: center;
+      ">FINAL SCORE: ${score.toString().padStart(6, '0')}</div>
+      <button id="restart-button" style="
+        font-family: 'Courier New', 'Lucida Console', monospace;
+        font-size: 24px;
+        font-weight: bold;
+        color: white;
+        background-color: #333;
+        border: 2px solid white;
+        padding: 15px 30px;
+        cursor: pointer;
+      ">PLAY AGAIN</button>
+    </div>`);
+    
+    $('body').append(gameOverScreen);
+    
+    // Add click handler to restart button
+    $('#restart-button').click(() => {
+      location.reload();
+    });
   };
 
   const startLaunchRandomLetters = () => {
@@ -282,6 +411,22 @@ $(function () {
           explosion.remove();
         }, 500);
 
+        // Decrease lives and handle respawn/game over
+        lives -= 1;
+        updateLivesDisplay();
+        
+        if (lives > 0) {
+          // Respawn after a delay
+          setTimeout(() => {
+            respawnShip();
+          }, 1000);
+        } else {
+          // Game over
+          setTimeout(() => {
+            gameOver();
+          }, 1500);
+        }
+
         flyingSpan.remove();
         randomSpan.remove();
         clearInterval(arcAnimation);
@@ -339,6 +484,7 @@ $(function () {
           controlsText.remove();
           gameStarted = true; // Enable game controls
           createScoreDisplay(); // Create score display
+          createLivesDisplay(); // Create lives display
           startHeadingDrift();
           startLaunchRandomLetters()
         });
