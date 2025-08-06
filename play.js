@@ -4,6 +4,7 @@ $(function () {
   // Track spaceship position
   let spaceshipX = 0;
   let spaceshipY = 0;
+  let gameStarted = false; // Game state variable
 
   // Get screen boundaries
   const getScreenBounds = () => {
@@ -31,6 +32,8 @@ $(function () {
   const SHOT_COOLDOWN = 250; // 0.5 seconds in milliseconds
 
   const shootBullet = () => {
+    if (!gameStarted) return; // Exit if game not started
+
     const currentTime = Date.now();
 
     // Check if enough time has passed since last shot
@@ -103,6 +106,8 @@ $(function () {
   };
 
   const launchRandomLetter = () => {
+    if (!gameStarted) return; // Exit if game not started
+
     // Get all span elements with isLetter="true" attribute
     const allSpans = $('span[isLetter="true"]');
     if (allSpans.length === 0) return;
@@ -218,13 +223,17 @@ $(function () {
     // Empty function for now
     var audio = new Audio("audio/game_intro.mp3");
     audio.play();
+    window.setTimeout(() => {
+      gameStarted = true; // Enable game controls
+      startHeadingDrift();
+    }, 5000);
 
     $("#c").animate({ opacity: 0 }, 500, function () {
       // Animation complete
       $(this).empty();
       $(this).remove();
     });
-    ship.fadeIn(7000);
+    ship.fadeIn(8000);
 
     $("body").animate(
       {
@@ -235,34 +244,43 @@ $(function () {
     );
 
     $('span[isLetter="true"]').css("color", "white");
-    
+
     // Start heading drifting animation
-    startHeadingDrift();
   };
-  
+
   const startHeadingDrift = () => {
-    $('li.heading').each(function(index, el) {
+    $("li.heading").each(function (index, el) {
       const $heading = $(el);
-      console.log('text', $heading.text());
-      
-      const driftDistance = $(window).width()/2 + (Math.random() * 40); // 300-340 pixels drift
-      const driftDuration = 10000 + (Math.random() * 3000); // 10-13 seconds
+      console.log("text", $heading.text());
+
+      const driftDistance = $(window).width() / 2 + Math.random() * 40; // 300-340 pixels drift
+      const driftDuration = 10000 + Math.random() * 3000; // 10-13 seconds
       const delay = index * 500; // Stagger by 200ms
-      
+
       // Start the drifting animation after a delay
       setTimeout(() => {
         const driftLoop = () => {
           // Drift right
-          $heading.animate({
-            left: '+=' + driftDistance + 'px'
-          }, driftDuration, 'swing', () => {
-            // Drift left
-            $heading.animate({
-              left: '-=' + driftDistance + 'px'
-            }, driftDuration, 'swing', driftLoop);
-          });
+          $heading.animate(
+            {
+              left: "+=" + driftDistance + "px",
+            },
+            driftDuration,
+            "swing",
+            () => {
+              // Drift left
+              $heading.animate(
+                {
+                  left: "-=" + driftDistance + "px",
+                },
+                driftDuration,
+                "swing",
+                driftLoop
+              );
+            }
+          );
         };
-        
+
         // Start the drift loop
         driftLoop();
       }, delay);
@@ -270,6 +288,8 @@ $(function () {
   };
 
   $(document).keydown(function (e) {
+    if (!gameStarted) return; // Exit if game not started
+
     switch (e.which) {
       case 32: // spacebar
         shootBullet();
@@ -278,19 +298,19 @@ $(function () {
   });
 
   $(document).keydown(function (e) {
+    // Allow Shift+S even when game not started
+    if (e.which === 83 && e.shiftKey) {
+      startGame();
+      return;
+    }
+
+    if (!gameStarted) return; // Exit if game not started
+
     const bounds = getScreenBounds();
 
     switch (e.which) {
-      // case 32: // spacebar
-      //     shootBullet();
-      //     break;
       case 80: // p key
         launchRandomLetter();
-        break;
-      case 83: // s key
-        if (e.shiftKey) {
-          startGame();
-        }
         break;
       case 37: // left arrow
         spaceshipX = Math.max(bounds.minX, spaceshipX - SHIFT);
