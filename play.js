@@ -253,32 +253,18 @@ $(function () {
 
         // Create explosion at ship position
         const shipOffset = ship.offset();
-        const explosion = $(`<div class="explosion" style="
+        const explosion = $(`<img class="explosion" src="images/explosion.webp" style="
           position: absolute;
-          left: ${shipOffset.left + ship.width() / 2 - 25}px;
-          top: ${shipOffset.top + ship.height() / 2 - 25}px;
-          width: 50px;
-          height: 50px;
-          background: radial-gradient(circle, #ff6600 0%, #ff0000 30%, #ffff00 60%, transparent 100%);
-          border-radius: 50%;
+          left: ${shipOffset.left + ship.width() / 2 - 50}px;
+          top: ${shipOffset.top + ship.height() / 2 - 50}px;
+          width: 100px;
+          height: 100px;
           z-index: 9999;
-          animation: explode 0.5s ease-out;
-        "></div>`);
-
-        // Add explosion animation keyframes to head if not already added
-        if (!$('head').find('style[data-explosion]').length) {
-          $('head').append(`<style data-explosion>
-            @keyframes explode {
-              0% { transform: scale(0.1); opacity: 1; }
-              50% { transform: scale(1.5); opacity: 0.8; }
-              100% { transform: scale(3); opacity: 0; }
-            }
-          </style>`);
-        }
+        ">`);
 
         $('body').append(explosion);
 
-        // Hide ship and remove explosion after animation
+        // Hide ship and remove explosion after brief display
         ship.hide();
         setTimeout(() => {
           explosion.remove();
