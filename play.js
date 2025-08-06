@@ -1,12 +1,21 @@
 $(function () {
   console.log("Document is ready");
 
+  // Check if this is a restart from the game over screen
+  const shouldRestart = localStorage.getItem('restartGame');
+  if (shouldRestart === 'true') {
+    localStorage.removeItem('restartGame'); // Clean up the flag
+    
+    setTimeout(startGame)
+
+  }
+
   // Track spaceship position
   let spaceshipX = 0;
   let spaceshipY = 0;
   let gameStarted = false; // Game state variable
   let score = 0; // Game score
-  let lives = 3; // Player lives
+  let lives = 1; // Player lives
   let highScore = localStorage.getItem('spaceshipHighScore') || 0;
   let gameOverState = false; // Track if game is over
 
@@ -334,6 +343,7 @@ $(function () {
     
     // Add click handler to restart button
     $('#restart-button').click(() => {
+      localStorage.setItem('restartGame', 'true');
       location.reload();
     });
   };
@@ -513,7 +523,7 @@ $(function () {
     }, 50); // ~60fps
   };
 
-  const startGame = () => {
+  function startGame() {
     // Empty function for now
     var audio = new Audio("audio/game_intro.mp3");
     audio.play();
