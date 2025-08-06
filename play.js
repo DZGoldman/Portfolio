@@ -13,6 +13,7 @@ $(function () {
   // Track spaceship position
   let spaceshipX = 0;
   let spaceshipY = 0;
+  let initGameStart = false;
   let gameStarted = false; // Game state variable
   let score = 0; // Game score
   let lives = 3; // Player lives
@@ -269,6 +270,9 @@ $(function () {
   };
 
   const gameOver = () => {
+    // Re-enable mouse interactions for the game over screen
+    $('#disable-mouse').remove();
+    
     // Set game over state to prevent new audio
     gameOverState = true;
     
@@ -541,6 +545,15 @@ $(function () {
   };
 
   function startGame() {
+    initGameStart = true;
+    $("#sub-cats").empty(); // Clear sub-categories
+    $("#info").empty()
+    // Disable all mouse interactions during the game
+    $('head').append(`<style id="disable-mouse">
+      * { pointer-events: none !important; }
+      #game-over-screen * { pointer-events: auto !important; }
+    </style>`);
+    
     // Empty function for now
     var audio = new Audio("audio/game_intro.mp3");
     audio.play();
@@ -670,7 +683,9 @@ $(function () {
   $(document).keydown(function (e) {
     // Allow Shift+S even when game not started
     if (e.which === 83 && e.shiftKey) {
-      startGame();
+      if(!initGameStart){
+        startGame();
+      }
       return;
     }
 
