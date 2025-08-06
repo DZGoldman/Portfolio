@@ -10,6 +10,13 @@ $(function () {
 
   }
 
+  $("#guilaga-head").on("click", function () {
+    $(this).hide()
+    if (!gameStarted) {
+      startGame();
+    }
+  });
+
   // Track spaceship position
   let spaceshipX = 0;
   let spaceshipY = 0;
@@ -720,7 +727,7 @@ $(function () {
     }, 5000);
 
   
-    ship.fadeIn(8000);
+    ship.fadeIn(4000);
 
     $("body").animate(
       {

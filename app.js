@@ -65,7 +65,8 @@ var Descriptions = {
   ethcritique: "A handy guide for Bitoiners (featured in Bankless Newsletter)",
   rollup: "Overview of Optimistic Rollup tech, commissioned by MolochDao",
   defirollup: "Thoughts on scaling the DeFi ecosystem, written for the Bankless newsletter",
-  "keyword-crypto": "Wide ranging dicussion on Keyword: Crypto podcast"
+  "keyword-crypto": "Wide ranging dicussion on Keyword: Crypto podcast",
+  guilaga: "Press shift + s to start."
 };
 
 var badPuncuation = {};
@@ -395,6 +396,12 @@ function special(letterClass, cb) {
       cb("s");
       cb("i");
       cb("x");
+      break;
+    case "5":
+      cb("f");
+      cb("i");
+      cb("v");
+      cb("e");
       break;
     default:
   }
