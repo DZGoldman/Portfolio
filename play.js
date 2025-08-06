@@ -123,6 +123,9 @@ $(function () {
             }
           }
           
+          // Check if player has won (no letters left)
+          setTimeout(checkWin, 100); // Small delay to ensure DOM update
+          
           return false; // Break out of .each()
         }
       });
@@ -188,6 +191,107 @@ $(function () {
       return true; // New high score achieved
     }
     return false; // No new high score
+  };
+
+  const checkWin = () => {
+    // Check if there are any letters left and game is still active
+    const remainingLetters = $('span[isLetter="true"]:visible').length;
+    console.log('remainingLetters', remainingLetters);
+    
+    if (remainingLetters == 0 && gameStarted && !gameOverState) {
+      stageCleared();
+    }
+  };
+
+  const stageCleared = () => {
+    // Re-enable mouse interactions for the stage cleared screen
+    $('#disable-mouse').remove();
+    
+    // Set game over state to prevent new audio and game mechanics
+    gameOverState = true;
+    gameStarted = false;
+    
+    // Play victory audio (you can add a victory sound here)
+    // var victoryAudio = new Audio("audio/victory.mp3");
+    // victoryAudio.play();
+    
+    // Check if new high score was achieved
+    const isNewHighScore = updateHighScore();
+    
+    // Show stage cleared screen
+    const stageClearedScreen = $(`<div id="stage-cleared-screen" style="
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 50, 0, 0.9);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+    ">
+      <div style="
+        font-family: 'Courier New', 'Lucida Console', monospace;
+        font-size: 64px;
+        font-weight: bold;
+        color: #00ff00;
+        margin-bottom: 40px;
+        text-align: center;
+      ">STAGE CLEARED!</div>
+      ${isNewHighScore ? `<div style="
+        font-family: 'Courier New', 'Lucida Console', monospace;
+        font-size: 48px;
+        font-weight: bold;
+        color: #ffff00;
+        margin-bottom: 30px;
+        text-align: center;
+        animation: blink 1s infinite;
+      ">NEW HIGH SCORE!</div>` : ''}
+      <div style="
+        font-family: 'Courier New', 'Lucida Console', monospace;
+        font-size: 32px;
+        color: white;
+        margin-bottom: 40px;
+        text-align: center;
+      ">FINAL SCORE: ${score.toString().padStart(6, '0')}</div>
+      <div style="display: flex; gap: 20px;">
+        <button id="restart-button" style="
+          font-family: 'Courier New', 'Lucida Console', monospace;
+          font-size: 24px;
+          font-weight: bold;
+          color: white;
+          background-color: #006600;
+          border: 2px solid white;
+          padding: 15px 30px;
+          cursor: pointer;
+        ">PLAY AGAIN</button>
+        <button id="quit-button" style="
+          font-family: 'Courier New', 'Lucida Console', monospace;
+          font-size: 24px;
+          font-weight: bold;
+          color: white;
+          background-color: #666;
+          border: 2px solid white;
+          padding: 15px 30px;
+          cursor: pointer;
+        ">QUIT</button>
+      </div>
+    </div>`);
+    
+    $('body').append(stageClearedScreen);
+    
+    // Add click handlers (same as game over screen)
+    $('#restart-button').click(() => {
+      localStorage.setItem('restartGame', 'true');
+      location.reload();
+    });
+    
+    // Add click handler to quit button
+    $('#quit-button').click(() => {
+      location.reload(); // Just reload without restart flag
+    });
   };
   
 
