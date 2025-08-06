@@ -153,7 +153,6 @@ $(function () {
       font-family: 'Courier New', 'Lucida Console', monospace;
       font-size: 24px;
       font-weight: bold;
-      color: white;
       z-index: 9999;
       text-align: right;
     ">000000</div>`);
@@ -200,7 +199,6 @@ $(function () {
       font-family: 'Courier New', 'Lucida Console', monospace;
       font-size: 24px;
       font-weight: bold;
-      color: white;
       z-index: 9999;
       display: flex;
       align-items: center;
@@ -301,7 +299,6 @@ $(function () {
         font-family: 'Courier New', 'Lucida Console', monospace;
         font-size: 64px;
         font-weight: bold;
-        color: white;
         margin-bottom: 40px;
         text-align: center;
       ">GAME OVER</div>
@@ -548,6 +545,7 @@ $(function () {
     initGameStart = true;
     $("#sub-cats").empty(); // Clear sub-categories
     $("#info").empty()
+    $("#c").empty()
     // Disable all mouse interactions during the game
     $('head').append(`<style id="disable-mouse">
       * { pointer-events: none !important; }
@@ -567,7 +565,6 @@ $(function () {
       font-family: 'Courier New', 'Lucida Console', monospace;
       font-size: 48px;
       font-weight: bold;
-      color: white;
       z-index: 9999;
       text-align: center;
     ">PLAYER 1</div>`);
@@ -611,22 +608,18 @@ $(function () {
       }, 2000);
     }, 5000);
 
-    $("#c").animate({ opacity: 0 }, 500, function () {
-      // Animation complete
-      $(this).empty();
-      $(this).remove();
-    });
+  
     ship.fadeIn(8000);
 
     $("body").animate(
       {
-        backgroundColor: "black",
+        // backgroundColor: "black",
       },
       3000,
       function (params) {}
     );
 
-    $('span[isLetter="true"]').css("color", "white");
+    // $('span[isLetter="true"]').css("color", "white");
 
     // Start heading drifting animation
   };
