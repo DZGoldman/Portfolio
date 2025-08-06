@@ -105,6 +105,17 @@ $(function () {
     }, 50);
   };
 
+  const startLaunchRandomLetters = () => {
+    window.setInterval(() => {
+      const randomNum = Math.floor(Math.random() * 3) + 1;
+      for (let i = 0; i < randomNum; i++) {
+        window.setTimeout(() => {
+          launchRandomLetter();
+        }, (i + 1) * Math.floor(Math.random() * 3 + 1) * 1000);
+      }
+    }, 5000);
+  };
+
   const launchRandomLetter = () => {
     if (!gameStarted) return; // Exit if game not started
 
@@ -223,9 +234,55 @@ $(function () {
     // Empty function for now
     var audio = new Audio("audio/game_intro.mp3");
     audio.play();
-    window.setTimeout(() => {
-      gameStarted = true; // Enable game controls
-      startHeadingDrift();
+
+    // Create Player 1 text
+    const playerText = $(`<div id="player-text" style="
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Courier New', 'Lucida Console', monospace;
+      font-size: 48px;
+      font-weight: bold;
+      color: white;
+      z-index: 9999;
+      text-align: center;
+    ">PLAYER 1</div>`);
+
+    // Create controls display
+    const controlsText = $(`<div id="controls-text" style="
+      position: fixed;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Courier New', 'Lucida Console', monospace;
+      font-size: 24px;
+      color: #888;
+      z-index: 9999;
+      text-align: center;
+      margin-top: 20px;
+    ">[←] [→] MOVE &nbsp;&nbsp;&nbsp; [SPACE] FIRE</div>`);
+
+    $("body").append(playerText);
+    $("body").append(controlsText);
+
+    // Show "PLAYER 1" for 3 seconds
+    setTimeout(() => {
+      playerText.text("READY");
+      playerText.css("color", "white"); // Change to yellow
+
+      // Show "READY" for 2 seconds
+      setTimeout(() => {
+        playerText.fadeOut(500, () => {
+          playerText.remove();
+        });
+        controlsText.fadeOut(500, () => {
+          controlsText.remove();
+          gameStarted = true; // Enable game controls
+          startHeadingDrift();
+          startLaunchRandomLetters()
+        });
+      }, 2000);
     }, 5000);
 
     $("#c").animate({ opacity: 0 }, 500, function () {
