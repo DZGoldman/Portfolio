@@ -1,37 +1,33 @@
 @import url(https://fonts.googleapis.com/css?family=Cousine);
 
-body{
+body {
   margin: 30px 60px;
-  font-family: 'Cousine', monospace;
+  font-family: "Cousine", monospace;
   font-size: 16px;
   line-height: 23px;
   display: none;
 }
 
-span{
+span {
   /*display:none*/
 }
-.heading{
+.heading {
   /* font-weight: bold; */
   cursor: pointer;
   margin-bottom: 200px;
-
 }
 
-.heading-alt{
+.heading-alt {
   /* font-weight: bold; */
   cursor: pointer;
   margin-bottom: 200px;
-
 }
 
-
-
-#bio, #bio-line{
-  font-weight: bolder
-
+#bio,
+#bio-line {
+  font-weight: bolder;
 }
-#counter{
+#counter {
   /* position: absolute; */
   top: 5px;
   top: 68px;
@@ -40,7 +36,7 @@ span{
   font-size: 20px;
   width: 15px;
 }
-#counter:hover{
+#counter:hover {
   opacity: 1;
   cursor: pointer;
 }
@@ -56,169 +52,169 @@ li {
   margin: 0;
 }
 
-a, a:visited {
+a,
+a:visited {
   text-decoration: none;
   color: black;
 }
-#writing-head{
+#writing-head {
   cursor: grab;
 }
 
-#wrapper{
+#wrapper {
   display: flex;
   flex-direction: row;
   margin-top: 30px;
 }
-#projects-head-sub{
+#projects-head-sub {
   margin-top: 10px;
 }
-#info{
+#info {
   /* margin-left: 50px; */
-
 }
- #sub-cats, #info{
+#sub-cats,
+#info {
   /* border: 1px solid black; */
   min-width: 300px;
   min-height: 300px;
   /* width: 250px; */
   max-width: 300px;
-
 }
-#categories{
+#categories {
   min-width: 200px;
   max-width: 200px;
   min-height: 250px;
 }
-#sub-cats{
+#sub-cats {
   /* min-width: 300px; */
 }
-#categories, #links {
+#categories,
+#links {
   margin: 10px 0 30px 0;
   /* display: flex;
   flex-direction: column */
 }
 
-#categories > li{
-  margin-bottom: 10px
+#categories > li {
+  margin-bottom: 10px;
 }
-#sub-cats{
+#sub-cats {
   /* display: flex;
   flex-direction: column */
   /* max-height: 100px;
   overflow: scroll; */
 }
 
-
-.hrotate{
+.hrotate {
   display: inline-block;
   color: red;
   font-weight: bold;
   -webkit-transition: transform 2000ms ease-out;
-  -moz-transition:transform 2000ms ease-out;
+  -moz-transition: transform 2000ms ease-out;
   -ms-transition: transform 2000ms ease-out;
   -o-transition: transform 2000ms ease-out;
   transition: transform 2000ms ease-out;
 
   -webkit-transform: rotate(1990deg);
-    -moz-transform: rotate(1990deg);
-     -ms-transform: rotate(1990deg);
-      -o-transform: rotate(1990deg);
-         transform: rotate(1990deg);
+  -moz-transform: rotate(1990deg);
+  -ms-transform: rotate(1990deg);
+  -o-transform: rotate(1990deg);
+  transform: rotate(1990deg);
 }
 
-
-
-
-.bhrotate{
+.bhrotate {
   display: inline-block;
   color: red;
   font-weight: bold;
   -webkit-transition: transform 2000ms ease-out;
-  -moz-transition:transform 2000ms ease-out;
+  -moz-transition: transform 2000ms ease-out;
   -ms-transition: transform 2000ms ease-out;
   -o-transition: transform 2000ms ease-out;
   transition: transform 2000ms ease-out;
 
   -webkit-transform: rotate(-1800deg);
-    -moz-transform: rotate(-1800deg);
-     -ms-transform: rotate(-1800deg);
-      -o-transform: rotate(-1800deg);
-         transform: rotate(-1800deg);
+  -moz-transform: rotate(-1800deg);
+  -ms-transform: rotate(-1800deg);
+  -o-transform: rotate(-1800deg);
+  transform: rotate(-1800deg);
 }
 
-
-.rotate{
+.rotate {
   display: inline-block;
   color: red;
   font-weight: bold;
   -webkit-transition: transform 500ms ease-out;
-  -moz-transition:transform 500ms ease-out;
+  -moz-transition: transform 500ms ease-out;
   -ms-transition: transform 500ms ease-out;
   -o-transition: transform 500ms ease-out;
   transition: transform 500ms ease-out;
 
   -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-     -ms-transform: rotate(360deg);
-      -o-transform: rotate(360deg);
-         transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
 }
 
-.back-rotate{
+.back-rotate {
   display: inline-block;
   -webkit-transition: transform 500ms ease-out;
-  -moz-transition:transform 500ms ease-out;
+  -moz-transition: transform 500ms ease-out;
   -ms-transition: transform 500ms ease-out;
   -o-transition: transform 500ms ease-out;
   transition: transform 500ms ease-out;
 
   -webkit-transform: rotate(-360deg);
-    -moz-transform: rotate(-360deg);
-     -ms-transform: rotate(-360deg);
-      -o-transform: rotate(-360deg);
-         transform: rotate(-360deg);
-
+  -moz-transform: rotate(-360deg);
+  -ms-transform: rotate(-360deg);
+  -o-transform: rotate(-360deg);
+  transform: rotate(-360deg);
 }
 
-.scatterx{
-transition: transform 6000ms;
-transform: translatex(1000px)
+.scatterx {
+  transition: transform 6000ms;
+  transform: translatex(1000px);
 }
-.scattermx{
-transition: transform 8000ms;
-transform: translatex(-1000px)
+.scattermx {
+  transition: transform 8000ms;
+  transform: translatex(-1000px);
 }
-.scattery{
-transition: transform 8000ms;
-transform: translatey(1000px)
+.scattery {
+  transition: transform 8000ms;
+  transform: translatey(1000px);
 }
-.scattermy{
-transition: transform 8000ms;
-transform: translatey(-1000px)
-}
-
-.body-rotate{
-  -webkit-transition: transform 80000ms ;
-  transform: rotate(-3600deg)
+.scattermy {
+  transition: transform 8000ms;
+  transform: translatey(-1000px);
 }
 
-.body-rotatem{
-  -webkit-transition: transform 80000ms ;
-  transform: rotate(3600deg)
+.body-rotate {
+  -webkit-transition: transform 80000ms;
+  transform: rotate(-3600deg);
 }
 
-#links-head, #projects-head, #bio, #other-head, #press-head, #other-writing-head, #writing-head{
+.body-rotatem {
+  -webkit-transition: transform 80000ms;
+  transform: rotate(3600deg);
+}
+
+#links-head,
+#projects-head,
+#bio,
+#other-head,
+#press-head,
+#other-writing-head,
+#writing-head {
   /* font-weight: bolder; */
   position: relative;
 }
-.heading{
-
+.heading {
 }
 
-#info{
+#info {
   font-size: 12px;
   /* position: fixed; */
-  top:22%;
+  top: 22%;
   left: 40%;
   width: 350px;
   height: 250px;
@@ -228,50 +224,51 @@ transform: translatey(-1000px)
   /* position: absolute; */
 }
 
-.sub-cat > li > a > span{
+.sub-cat > li > a > span {
   /* display: none; */
-  opacity: 0
+  opacity: 0;
 }
 
- #info > span{
-   opacity:0;
- }
+#info > span {
+  opacity: 0;
+}
 
- .heading{
-   /* font-style: bolder */
-   /* margin-bottom: 20px; */
+.heading {
+  /* font-style: bolder */
+  /* margin-bottom: 20px; */
+}
 
- }
-
-._{
+._ {
   display: none;
 }
 
-.link, .project{
- font-size: 12px;
- /* min-height: 50px;
+.link,
+.project {
+  font-size: 12px;
+  /* min-height: 50px;
  min-width: 500px; */
 }
 
-
-
-.other_project{
+.other_project {
   /*font-size: 12px;
   line-height: 20px;*/
 }
 
-#c{
-  font-size:11px;
+#c {
+  font-size: 11px;
   margin-bottom: 0px;
   margin-top: 0px;
-  opacity: .6
+  opacity: 0.6;
 }
 
-span{
+span {
   /*padding: 1px;*/
 }
 
-#corner-1,#corner-2, #corner-3,#corner-4{
+#corner-1,
+#corner-2,
+#corner-3,
+#corner-4 {
   position: absolute;
   width: 6px;
   height: 6px;
@@ -279,29 +276,28 @@ span{
   border-radius: 3px;
   cursor: pointer;
 }
-#corner-1{
-  left:2%;
-  top:2%;
-  display: none
-
+#corner-1 {
+  left: 2%;
+  top: 2%;
+  display: none;
 }
-#corner-2{
-  right:2%;
-  top:2%;
-  display: none
-}
-
-#corner-3{
-  left:2%;
-  bottom:2%;
-  display: none
-}
-#corner-4{
-  right:2%;
-  bottom:2%;
+#corner-2 {
+  right: 2%;
+  top: 2%;
+  display: none;
 }
 
-.serp-icon{
+#corner-3 {
+  left: 2%;
+  bottom: 2%;
+  display: none;
+}
+#corner-4 {
+  right: 2%;
+  bottom: 2%;
+}
+
+.serp-icon {
   width: 20px;
   height: 20px;
   position: absolute;
@@ -310,43 +306,41 @@ span{
 }
 
 :root {
-  --transform-time:120ms;
+  --transform-time: 120ms;
   --degrees: 15deg;
   --neg-degrees: -15deg;
-  
 }
 
-.srotate{
+.srotate {
   display: inline-block;
   /* color: red;
   font-weight: bold; */
   -webkit-transition: transform var(--transform-time);
-  -moz-transition:transform  var(--transform-time);
-  -ms-transition: transform  var(--transform-time);
-  -o-transition: transform  var(--transform-time);
-  transition: transform  var(--transform-time);
+  -moz-transition: transform var(--transform-time);
+  -ms-transition: transform var(--transform-time);
+  -o-transition: transform var(--transform-time);
+  transition: transform var(--transform-time);
 
-  -webkit-transform: var(--transform-time);;
-    -moz-transform: rotate(var(--degrees));
-     -ms-transform: rotate(var(--degrees));
-      -o-transform: rotate(var(--degrees));
-         transform: rotate(var(--degrees));
+  -webkit-transform: var(--transform-time);
+  -moz-transform: rotate(var(--degrees));
+  -ms-transform: rotate(var(--degrees));
+  -o-transform: rotate(var(--degrees));
+  transform: rotate(var(--degrees));
 }
 
-.sback-rotate{
+.sback-rotate {
   display: inline-block;
-  -webkit-transition: transform  var(--transform-time);
-  -moz-transition:transform  var(--transform-time);
-  -ms-transition: transform  var(--transform-time);
-  -o-transition: transform  var(--transform-time);
-  transition: transform  var(--transform-time);
+  -webkit-transition: transform var(--transform-time);
+  -moz-transition: transform var(--transform-time);
+  -ms-transition: transform var(--transform-time);
+  -o-transition: transform var(--transform-time);
+  transition: transform var(--transform-time);
 
   -webkit-transform: rotate(var(--neg-degrees));
-    -moz-transform: rotate(var(--neg-degrees));
-     -ms-transform: rotate(var(--neg-degrees));
-      -o-transform: rotate(var(--neg-degrees));
-         transform: rotate(var(--neg-degrees));
-
+  -moz-transform: rotate(var(--neg-degrees));
+  -ms-transform: rotate(var(--neg-degrees));
+  -o-transform: rotate(var(--neg-degrees));
+  transform: rotate(var(--neg-degrees));
 }
 
 #spaceship-container {
@@ -359,7 +353,6 @@ span{
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-
 #spaceship-container {
   text-align: center;
   margin: 20px 0;
@@ -370,5 +363,12 @@ span{
   cursor: pointer;
 }
 
-
-
+#bottom-right-text {
+  position: fixed;
+  bottom: 0px;
+  left: 10px;
+  font-size: 2px;
+  color: #666;
+  font-family: Arial, sans-serif;
+  z-index: 1000;
+}
