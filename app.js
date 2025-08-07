@@ -132,17 +132,6 @@ $(function() {
 
 
 
-    // $("#bio, #bio-line").hover(()=>{
-    //   console.log('??');
-      
-    // });
-
-  //    $(".project").mouseleave(function() {
-  //   $info.empty();
-  //   // $info.hide();
-  // });
-
-
   $(".heading").click(
     //on hover
     headingClick
