@@ -1,0 +1,15 @@
+User-agent: *
+Disallow: /contact.html
+Disallow: /contact.css
+
+# Allow crawling of main portfolio content
+Allow: /index.html
+Allow: /style.css
+Allow: /app.js
+Allow: /writing/
+Allow: /images/
+Allow: /assets/
+
+# Standard crawl delay to be respectful
+Crawl-delay: 1
+
