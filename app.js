@@ -17,7 +17,7 @@ var Descriptions = {
     "Resu-me: Job resume analysis and optimization tool that lets users compare their resumes to successful resumes of their desired job title. Created as part of a team with developers AK Williams and Kerstein Perez. (D3, CasperJS, Node.js, Express, MongoDB)",
 
   cubonic:
-    "Cubonic: Original logic puzzle app with full CRUD functionality. As of writing, two people (barring myself) have managed to solve all 10 levels (returning soon).",
+    "Cubonic: Original logic puzzle app with full CRUD functionality. As of writing, two people have managed to solve all 10 levels (returning soon).",
 
   freq:
     "Typography experiment in live text analysis. Provides real time feedback of character frequency and sentence tone. (Angular, Node-Express, Alchemy API)",
