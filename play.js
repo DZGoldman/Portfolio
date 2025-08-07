@@ -1,6 +1,4 @@
 $(function () {
-  console.log("Document is ready");
-
   // Check if this is a restart from the game over screen
   const shouldRestart = localStorage.getItem('restartGame');
   if (shouldRestart === 'true') {
@@ -211,7 +209,6 @@ $(function () {
   const checkWin = () => {
     // Check if there are any letters left and game is still active
     const remainingLetters = $('span[isLetter="true"]:visible').length;
-    console.log('remainingLetters', remainingLetters);
     
     if (remainingLetters == 0 && gameStarted && !gameOverState) {
       stageCleared();
@@ -562,9 +559,8 @@ $(function () {
       1000
     );
 
-    const colors = ["#00FF00", "#00FFDE", "#FFFF00", "#FF0000", "#0068DE"];
+    const colors = ["#00FF00", "#00FFDE", "#baba00ff", "#FF0000", "#0068DE"];
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
-    console.log("randomColor", randomColor);
 
     flyingSpan.css("color", randomColor);
 
@@ -627,7 +623,6 @@ $(function () {
         letterRect.top < shipRect.bottom &&
         letterRect.bottom > shipRect.top
       ) {
-        console.log("collide");
         playAudio("audio/dead.wav");
 
         // Create explosion at ship position
@@ -695,6 +690,7 @@ $(function () {
     $("#sub-cats").empty(); // Clear sub-categories
     $("#info").empty()
     $("#c").empty()
+    $("#other-writing-head").empty()
     $("#guilaga-head").hide()
     // Disable all mouse interactions during the game
     $('head').append(`<style id="disable-mouse">
@@ -738,7 +734,7 @@ $(function () {
     // Show "PLAYER 1" for 3 seconds
     setTimeout(() => {
       playerText.text("READY");
-      playerText.css("color", "white"); // Change to yellow
+      playerText.css("color", "Black"); // Change to yellow
 
       // Show "READY" for 2 seconds
       setTimeout(() => {
@@ -756,7 +752,7 @@ $(function () {
           startLaunchRandomLetters()
         });
       }, 2000);
-    }, 5000);
+    }, 3000);
 
   
     ship.fadeIn(4000);
@@ -777,7 +773,6 @@ $(function () {
   const startHeadingDrift = () => {
     $("li.heading").each(function (index, el) {
       const $heading = $(el);
-      console.log("text", $heading.text());
 
       const driftDistance = $(window).width() / 2 + Math.random() * 40; // 300-340 pixels drift
       const driftDuration = 10000 + Math.random() * 3000; // 10-13 seconds

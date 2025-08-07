@@ -1,10 +1,11 @@
 //puts each letter in the string into a span div, appends them all into a div
 var $subCats;
 
-const bio = "This is my bio todo"
+const bio = `Daniel Zachary Goldman is an independent software developer, writer, poster, and researcher. He is best known for his contributions to Arbitrum and for making some annoying twitter bots. He resides in New York.`;
 var Descriptions = {
   trump:
-    "Donald Trump / Mussolini twitter bot. Stores data from Trump's twitter feed and Mussolini's autobiography and uses a Markov chain algorithm to generate tweets in their combined literary style. #‎RendereTwitterDiNuovoGrande‬ (Ruby on Rails, postgreSQL)",
+    "Markov chain bot trained on Trump's twitter feed and Mussolini's autobiography #‎RendereTwitterDiNuovoGrande‬. (Current status: banned)",
+    vault: "Solidity / EVM dapp implementation of Bitcoin style vaults (as described in the Bitcoin Covenants paper).",
 
   githubdata:
     "Github Data: internal tool for for scraping and analyzing data of Github users. Includes features for uploading and exporting CSV files.Built as independent contract work for Liquid Talent. (Node-Express, PostgreSQl)",
@@ -16,16 +17,18 @@ var Descriptions = {
     "Resu-me: Job resume analysis and optimization tool that lets users compare their resumes to successful resumes of their desired job title. Created as part of a team with developers AK Williams and Kerstein Perez. (D3, CasperJS, Node.js, Express, MongoDB)",
 
   cubonic:
-    "Cubonic: Original logic puzzle app with full CRUD functionality. As of writing this, two people (barring myself) have managed to solve all 10 levels. (Ruby on Rails, JQuery animations, postreSQL)",
+    "Cubonic: Original logic puzzle app with full CRUD functionality. As of writing, two people (barring myself) have managed to solve all 10 levels (returning soon).",
 
   freq:
     "Typography experiment in live text analysis. Provides real time feedback of character frequency and sentence tone. (Angular, Node-Express, Alchemy API)",
-
+  forbes: "Layer 2 technology explainer for Forbes.",
   gameoflife:
-    "Interactve environoment for running Conway's Game of Life. (JavaScript, HTML/CSS, and jQuery-UI)",
+    "Interactve web implementation of John Conway's (RIP) Game of Life.",
 
-  fireworks: "Fireworks show simulation (MatterJS)",
-
+  fireworks: "Fireworks show simulation animation.",
+  nitro: `Coauther on updated Arbitrum Protocol Whitepaper (aka "Nitro")`,
+  mahsa: `Coauthered and consulted/advised on "Fast and Furious Withdrawals from Optimistic Rollups", Mahsa Moosavi's PHD thesis.`,
+  lighting_paper: `Peer reviewed and advised on "Topological Analysis of Bitcoin’s Lightning Network" paper.`,
   sudoku:
     "Sudoku playing environment, complete with general solving algorithm. My first web app, so go easy. Technologies: JavaScript/Jquery, HTML/CSS. At no point in building this did I actually solve a Sudoku puzzle.",
   c: "?",
@@ -50,7 +53,7 @@ var Descriptions = {
     "Tracking data on the stablecoins currently on the market (Flask, React)",
   talkcoin:
     'Slack bot for tracking cryptocurrency prices; add to slack and message "\\talkcoin" for instructions (Python)',
-  coindesk: "Interviewed for piece on mining exploits",
+  coindesk: "Interviewed for piece on mining exploits.",
   cryptoconomy: "Wide ranging discussion on all things crypto",
   italian: "Italian translation of Verge hack piece",
   reconsiderations: "Wacky short story collection I wrote in college",
@@ -58,9 +61,9 @@ var Descriptions = {
   btcenergy: "Explnataion of the relationship between Bitcoin mining and energy consumption",
   tether: "Commentary on Tether and Bitfinex",
   hottakes: "Twitter bot for generating hot takes (and only hot takes) about the crypto space",
-  soundmoney: "Bitcoin paper wallet generator using audio entropy (react-mic, bitcoin-js)",
+  soundmoney: "Bitcoin paper wallet generator using audio entropy.",
   cryptoterms: "On the confusing state of the terms we're currently stuck with the crypto space",
-  plasma: "Three part series for The Block on Plasma technology.",
+  plasma: "Three part series for The Block on Plasma technology. Featured on ethereum.org",
   awdy: "Data aggregation for top cryptocurrencies; initally created owned by Dogecoin creator Jackson Palmer (now owned and revamped by me)",
   ethereum: "'Understanding Plasma' piece top link for Plasma resources on ethereum.org",
   "ln-junkies": "Discussion on layer 2 constructions, Bitcoin & Ethereum tribalism, social dynamics of protocol changes, and more",
@@ -70,7 +73,10 @@ var Descriptions = {
   "keyword-crypto": "Wide ranging dicussion on Keyword: Crypto podcast",
   guilaga: "Press shift + s to start (sound on)",
   bio: bio,
-  "bio-line": bio
+  "bio-line": bio,
+  wired: "Interviewed for Wired piece on deepfakes and security practices.",
+  devcon: "Devcon talk on Sequencer decentralization models.",
+  ccc: "Podcast appearance on Crypto Critics Corner with Cas Piancey and Bennett Tomlin. Good guys."
 };
 
 var badPuncuation = {};
@@ -82,12 +88,9 @@ var badPuncuation = {};
 var $info;
 $(function() {
   $info = $("#info");
-  console.info("%cLinks aren't all you can click.", "color: green;");
+  console.info("%cKeep looking.", "color: green;");
+  // Oh c'mon, not here, that's just cheating.
 
-  console.info(
-    "%cThis page has unnecessarily elaborate Easter Eggs.",
-    "color: blue;"
-  );
 
   $("._").toggle();
   $(".spanify-this,.project,.heading,#c,#bio-line,.link").each(function() {
@@ -144,6 +147,14 @@ $(function() {
     //on hover
     headingClick
   );
+
+  $("#message-me-head").click(function() {
+
+    window.open("./contact.html")
+  });
+    $("#message-me-head")
+    .children()
+    .draggable();
 
   var projectHover = function() {
     var $project = $(this);
@@ -233,7 +244,7 @@ $(function() {
       );
     });
   });
-  $("#other-head")
+  $("#writing-head")
     .children()
     .on("mouseup", function(e) {
       e.preventDefault();
@@ -242,9 +253,6 @@ $(function() {
       caseAnimation($t);
       window.getSelection && window.getSelection().collapse($t[0]);
     });
-  $("#writing-head")
-    .children()
-    .draggable();
   $("#links-head").click(function() {
     if ($(this).hasClass("hrotate")) {
       $(this).removeClass("hrotate");
@@ -281,7 +289,12 @@ $(function() {
     }, 40);
   });
   var midXRun = false;
-  $("#other-writing-head").click(function() {
+    $("#other-writing-head").click(function() {
+    $("#other-writing-head").animate({
+      opacity: 1
+    }, 1500)
+  })
+  $("#press-head").click(function() {
     if (midXRun) return;
     midXRun = true;
     var $children = $(this).children();
@@ -306,7 +319,7 @@ $(function() {
     }, 70);
   });
 
-  $("#press-head").click(function() {
+  $("#research-head").click(function() {
     $(this).animate(
       {
         opacity: 0

@@ -11,6 +11,17 @@ body {
 span {
   /*display:none*/
 }
+
+#message-me-head {
+  cursor: grab;
+}
+
+#other-writing-head{
+  opacity: 0;
+  font-size: 12px;
+  margin-top: 25px;
+  color: blue;
+}
 .heading {
   /* font-weight: bold; */
   cursor: pointer;
@@ -57,9 +68,6 @@ a:visited {
   text-decoration: none;
   color: black;
 }
-#writing-head {
-  cursor: grab;
-}
 
 #wrapper {
   display: flex;
@@ -81,12 +89,12 @@ a:visited {
   max-width: 300px;
 }
 #categories {
-  min-width: 200px;
-  max-width: 200px;
+  min-width: 250px;
+  max-width: 300px;
   min-height: 250px;
 }
 #sub-cats {
-  /* min-width: 300px; */
+  min-width: 320px;
 }
 #categories,
 #links {
@@ -204,7 +212,7 @@ a:visited {
 #other-head,
 #press-head,
 #other-writing-head,
-#writing-head {
+#writing-head, #research-head, #message-me-head {
   /* font-weight: bolder; */
   position: relative;
 }

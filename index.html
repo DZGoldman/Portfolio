@@ -1,482 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>DZG</title>
-    <link id="tab-icon" rel="icon" href="images/serp.png" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
 
-  <body>
-    <div id="corner-1" class="corner"></div>
-    <div id="corner-2" class="corner"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DZG</title>
+  <link id="tab-icon" rel="icon" href="images/serp.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-    <!-- <marquee>test</marquee> -->
+<body>
+  <div id="corner-1" class="corner"></div>
+  <div id="corner-2" class="corner"></div>
 
-    <div id="bio" class="spanify-this">Daniel Goldman</div>
-    <div id="bio-line">Software Developer, Writer</div>
-    <div id="counter"></div>
-    <div id="wrapper">
-      <ul id="categories">
-        <li id="writing-head" i="2" class="heading">Selected Writing</li>
-        <li id="projects-head" i="0" class="heading spanify-this">Selected Gizmos</li>
-        <li id="other-head" i="1" class="heading">Other Projects</li>
-        <li id="other-writing-head" i="3" class="heading">Other Writing</li>
-        <li id="press-head" i="4" class="heading">Press / Appearances</li>
-        <li id="links-head" i="5" class="heading">Contact / Links</li>
-        <li id="guilaga-head" i="6" class="heading-alt">🚀</li>
+
+  <div id="bio" class="spanify-this">Daniel Goldman</div>
+  <div id="bio-line">Software Developer, Writer</div>
+  <div id="counter"></div>
+  <div id="wrapper">
+    <ul id="categories">
+      <li id="projects-head" i="0" class="heading spanify-this">Selected Gizmos</li>
+      <li id="writing-head" i="1" class="heading">Selected Crypto Writing</li>
+      <li id="research-head" i="2" class="heading">Research Contributions</li>
+
+      <li id="press-head" i="3" class="heading">Press / Appearances</li>
+      <li id="message-me-head" class="heading">
+        Message me
+      </li>
+      <li id="links-head" i="4" class="heading">Links</li>
+
+      <li id="guilaga-head" class="heading-alt">🚀</li>
+
+      <li id="other-writing-head" i="5" class="heading">
+        <ul>
+          <li>Secret:</li>
+          <li>Other Writing</li>
+        </ul>
+      </li>
+    </ul>
+
+    <div id="sub-cats">
+      <ul id="projects-head-sub" class="sub-cat">
+        <li>
+          <a class="project" target="_blank" id="guilaga">GUIlaga</a>
+        </li>
+        <li>
+          <a href="https://vault.danielzgoldman.com/" class="project" target="_blank" id="vault">
+            SolVault</a>
+        </li>
+        <li>
+          <a href="https://soundmoney.danielzgoldman.com/" class="project" target="_blank" id="soundmoney">Sound
+            Money</a>
+        </li>
+        <li>
+          <a href="http://159.203.117.166:3000/" class="project" target="_blank" id="resume"></a>
+        </li>
+        <li>
+          <a href="https://fireworks.danielzgoldman.com/" class="project" target="_blank" id="fireworks">Fireworks</a>
+        </li>
+        <li>
+          <a href="https://gameoflife.danielzgoldman.com/" class="project" target="_blank" id="gameoflife">Game of
+            Life</a>
+        </li>
+
+        <li>
+          <a href="http://cubonic.herokuapp.com/" class="project" target="_blank" id="cubonic">Cubonic</a>
+        </li>
+
+        <li>
+          <a href="https://github.com/DZGoldman/Donaldo-Trumpilini-Twitter-Bot" class="project" target="_blank"
+            id="trump">Donaldo Trumpilini</a>
+        </li>
+      </ul>
+      <ul id="writing-head-sub" class="sub-cat">
+
+        <li>
+          <a href="https://www.forbes.com/sites/danielgoldman/article/what-is-a-crypto-layer-2-and-how-does-it-work/"
+            class="project" target="_blank" id="forbes">What Is A Layer 2? (Forbes)</a>
+        </li>
+        <li>
+          <a href="https://medium.com/molochdao/the-state-of-optimistic-rollup-8ade537a2d0f" class="project"
+            target="_blank" id="rollup">The State of Optimistic Rollup (MolochDAO)</a>
+        </li>
+        <li>
+          <a href="https://www.theblock.co/post/10793/understanding-plasma-part-1-the-basics" class="project"
+            target="_blank" id="plasma">Understanding Plasma (The Block)</a>
+        </li>
+        <li>
+          <a href="https://bankless.substack.com/p/when-defi-meets-rollup" class="project" target="_blank"
+            id="defirollup">When DeFi Meets Rollup (Bankless)</a>
+        </li>
+        <li>
+          <a href="https://blog.theabacus.io/the-verge-hack-explained-7942f63a3017" class="project" target="_blank"
+            id="verge1">The Verge Hack, Explained</a>
+        </li>
+        <li>
+          <a href="https://blog.theabacus.io/lightning-network-2-0-b878b9bb356e" class="project" target="_blank"
+            id="lightning">Lightning Network 2.0</a>
+        </li>
+        <li>
+          <a href="https://blog.theabacus.io/we-need-better-terms-for-everything-in-cryptocurrency-including-cryptocurrency-c4e58f0ead33"
+            class="project" target="_blank" id="cryptoterms">On The Crypto Lexicon</a>
+        </li>
+        <li>
+          <a href="https://medium.com/@dzack23/money-without-middle-men-efd9dec3af1e" class="project" target="_blank"
+            id="upgoer">Money Without MiddleMen</a>
+        </li>
+      </ul>
+      <ul id="research-head-sub" class="sub-cat">
+        <li>
+          <a href="https://resources.cryptocompare.com/asset-management/808/1688638950286.pdf" class="project"
+            target="_blank" id="nitro">Arbitrum Nitro</a>
+        </li>
+        <li>
+          <a href="https://drops.dagstuhl.de/storage/00lipics/lipics-vol282-aft2023/LIPIcs.AFT.2023.22/LIPIcs.AFT.2023.22.pdf"
+            class="project" target="_blank" id="mahsa">Fast and Furious Withdrawals</a>
+        </li>
+        <li>
+          <a href="https://arxiv.org/pdf/1901.04972" class="project" target="_blank" id="lighting_paper">Topological
+            Analysis Lightning
+            Network</a>
+        </li>
+      </ul>
+      <ul id="press-head-sub" class="sub-cat">
+
+        <li>
+          <a href="https://www.wired.com/story/paranoia-social-engineering-real-fake/" class="project" target="_blank"
+            id="wired">Wired</a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=RcOaH9GL-78&t=348s" class="project" target="_blank"
+            id="devcon">Devcon</a>
+        </li>
+        <li>
+          <a href="https://creators.spotify.com/pod/profile/cryptocriticscorner/episodes/Tracking-Tether-and-Working-on-Ethereum-Layer-2-with-Daniel-Goldman-e19h5hj"
+            class="project" target="_blank" id="ccc">Crypto Critics Cordner</a>
+        </li>
+
+
+        <li>
+          <a href="https://anchor.fm/keywordcrypto/episodes/Daniel-Goldman-Touts-Layer-2-on-Ethereum-edh4be"
+            class="project" target="_blank" id="keyword-crypto">Keyword: Crypto Podcast</a>
+        </li>
+        <li>
+          <a href="https://creators.spotify.com/pod/profile/lightning-junkies/episodes/Episode-LNJ018---Daniel-Goldman-explains-why-Layer-2-on-Ethereum-Pwns-Bitcoin-ea22q5"
+            class="project" target="_blank" id="ln-junkies">Lightning Junkies Podcast</a>
+        </li>
+        <li>
+          <a href="https://www.coindesk.com/markets/2018/06/05/verges-blockchain-attacks-are-worth-a-sober-second-look"
+            class="project" target="_blank" id="coindesk">Coindesk</a>
+        </li>
+        <li>
+          <a href="https://cryptoconomy.podbean.com/e/cryptochat-with-daniel-goldman-verge-digital-gold-forks-and-going-down-the-rabbit-hole/"
+            class="project" target="_blank" id="cryptoconomy">Cryptoconomy Podcast</a>
+        </li>
+      </ul>
+      <ul id="links-head-sub" class="sub-cat">
+        <li id="links-head"></li>
+        <li>
+          <a target="_blank" href="./assets/dzg_anon_key.asc" class="link" id="pgp" download>PGP</a>
+        </li>
+        <li>
+          <a href="images/DanielGoldmanResume.pdf" class="link" target="_blank" id="myresume">Resume</a>
+        </li>
+
+        <li>
+          <a href="https://github.com/DZGoldman" class="link" target="_blank" id="Github">Github</a>
+        </li>
+        <li>
+          <a href="https://medium.com/@dzack23" class="link" target="_blank" id="Medium">Medium</a>
+        </li>
+        <li>
+          <a href="https://twitter.com/DZack23" class="link" target="_blank" id="twitter">Twitter</a>
+        </li>
+        </li>
+        <li>
+          <a href="https://dzack23.substack.com/" class="link" target="_top" id="substack">Substack</a>
+        </li>
       </ul>
 
-      <div id="sub-cats">
-        <ul id="projects-head-sub" class="sub-cat">
-            <li>
-            <a
-              class="project"
-              target="_blank"
-              id="guilaga"
-              >GUIlaga</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://arewedecentralizedyet.com/"
-              class="project"
-              target="_blank"
-              id="awdy"
-              >Are We Decentralized Yet?</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://github.com/DZGoldman/CryptoCanvas"
-              class="project"
-              target="_blank"
-              id="cryptocanvas"
-              >Crypto Canvas</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://droptone.herokuapp.com/"
-              class="project"
-              target="_blank"
-              id="droptone"
-              >drop-tone</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://slack.com/oauth/authorize?&client_id=152358942496.212792173268&scope=commands,bot"
-              class="project"
-              target="_blank"
-              id="talkcoin"
-              >Talkin Coin</a
-            >
-          </li>
-          <li>
-            <a
-              href="http://cubonic.herokuapp.com/"
-              class="project"
-              target="_blank"
-              id="cubonic"
-              >Cubonic</a
-            >
-          </li>
+      <ul id="other-writing-head-sub" class="sub-cat">
+        <li>
+          <a href="https://medium.com/@dzack23/what-democracy-looks-like-768383e215cf" class="project" target="_blank"
+            id="dnc">What Democracy Looks Like</a>
+        </li>
 
-          <!-- <li><a href="https://github.com/DZGoldman/Github-Data" class='project' target="_blank" id='githubdata'>girhub data</a></li> -->
-          <li>
-            <a
-              href="https://twitter.com/Don_Trumpilini"
-              class="project"
-              target="_blank"
-              id="trump"
-              >Donaldo Trumpilini</a
-            >
-          </li>
-          <li>
-            <a
-              href="http://159.203.117.166:3000/"
-              class="project"
-              target="_blank"
-              id="resume"
-            ></a>
-          </li>
-        </ul>
+        <li>
+          <a href="http://www.makemag.com/review-the-new-math-by-christopher-j-phillips/" class="project"
+            target="_blank" id="newmath">New Math: A Political History (Review)</a>
+        </li>
+        <li>
+          <a href="https://www.wordswithoutborders.org/book-review/norman-maneas-captives" class="project"
+            target="_blank" id="captives">Norman Manea's Captives (Review)</a>
+        </li>
+        <li>
+          <a href="images/reconsiderations.pdf" class="project" target="_blank" id="reconsiderations">The
+            Reconsiderations (stories)</a>
+        </li>
+      </ul>
 
-        <ul id="other-head-sub" class="sub-cat">
-          <!-- <li><a href="http://freqout.herokuapp.com/" class='project' target="_blank" id='freq'></a></li> -->
-          <li>
-            <a
-              href="https://soundmoney.herokuapp.com/"
-              class="project"
-              target="_blank"
-              id="soundmoney"
-              >Sound Money</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://www.arewestableyet.net/"
-              class="project"
-              target="_blank"
-              id="awsy"
-              >Are We Stable Yet?</a
-            >
-          </li>
-          <li>
-            <a
-              href="http://gameoflife.danielzgoldman.com/"
-              class="project"
-              target="_blank"
-              id="gameoflife"
-              >Game of Life</a
-            >
-          </li>
-          <li>
-            <a
-              href="http://fireworks.danielzgoldman.com/"
-              class="project"
-              target="_blank"
-              id="fireworks"
-              >Fireworks</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://twitter.com/eurtprinter"
-              class="project"
-              target="_blank"
-              id="tetherprinter"
-              >(Not) Tether Backup Printer</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://twitter.com/CryptoHotTakes"
-              class="project"
-              target="_blank"
-              id="hottakes"
-              >Crypto Hot Takes Bot</a
-            >
-          </li>
-        </ul>
 
-        <ul id="writing-head-sub" class="sub-cat">
-          <li>
-            <a
-              href="https://medium.com/molochdao/the-state-of-optimistic-rollup-8ade537a2d0f"
-              class="project"
-              target="_blank"
-              id="rollup"
-              >The State of Optimistic Rollup</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://www.theblockcrypto.com/2019/02/07/understanding-plasma-part-1-the-basics/"
-              class="project"
-              target="_blank"
-              id="plasma"
-              >Understanding Plasma</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://blog.theabacus.io/the-verge-hack-explained-7942f63a3017"
-              class="project"
-              target="_blank"
-              id="verge1"
-              >The Verge Hack, Explained</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://blog.theabacus.io/lightning-network-2-0-b878b9bb356e"
-              class="project"
-              target="_blank"
-              id="lightning"
-              >Lightning Network 2.0</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://medium.com/@dzack23/money-without-middle-men-efd9dec3af1e"
-              class="project"
-              target="_blank"
-              id="upgoer"
-              >Money Without MiddleMen</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://blog.theabacus.io/what-we-talk-about-when-we-talk-about-blockchain-technology-4f7a6a0dc03"
-              class="project"
-              target="_blank"
-              id="wwta"
-              >What We Talk About When We Talk About Blockchain</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://medium.com/@dzack23/what-democracy-looks-like-768383e215cf"
-              class="project"
-              target="_blank"
-              id="dnc"
-              >What Democracy Looks Like</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://www.wordswithoutborders.org/book-review/norman-maneas-captives"
-              class="project"
-              target="_blank"
-              id="captives"
-              >Norman Manea's Captives (Review)</a
-            >
-          </li>
-        </ul>
-        <ul id="other-writing-head-sub" class="sub-cat">
-          <li>
-            <a
-              href="https://bankless.substack.com/p/when-defi-meets-rollup"
-              class="project"
-              target="_blank"
-              id="defirollup"
-              >When DeFi Meets Rollup</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://blog.theabacus.io/how-not-to-critique-ethereum-11b542b08206"
-              class="project"
-              target="_blank"
-              id="ethcritique"
-              >How Not To Critique Ethereum</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://blog.theabacus.io/we-need-better-terms-for-everything-in-cryptocurrency-including-cryptocurrency-c4e58f0ead33"
-              class="project"
-              target="_blank"
-              id="cryptoterms"
-              >On The Crypto Lexicon</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://blog.theabacus.io/mr-fantastic-a-focused-response-to-nouriel-roubinis-senate-testimony-d008d7304961"
-              class="project"
-              target="_blank"
-              id="nouriel"
-              >Mr. Fantastic: On Nouriel's Testimony</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://blog.theabacus.io/lets-do-the-time-warp-again-the-verge-hack-part-deux-c6396ab36ecb"
-              class="project"
-              target="_blank"
-              id="verge2"
-              >The Verge Hack Part 2</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://blog.theabacus.io/tether-the-discourse-integrity-crisis-d3cca006b83"
-              class="project"
-              target="_blank"
-              id="tether"
-              >Tether & the Discourse Integrity Crisis</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://blog.theabacus.io/bitcoin-transactions-and-energy-16486bf92851"
-              class="project"
-              target="_blank"
-              id="btcenergy"
-              >Bitcoin and Energy</a
-            >
-          </li>
-          <li>
-            <a
-              href="http://www.makemag.com/review-the-new-math-by-christopher-j-phillips/"
-              class="project"
-              target="_blank"
-              id="newmath"
-              >New Math: A Political History (Review)</a
-            >
-          </li>
-          <li>
-            <a
-              href="images/reconsiderations.pdf"
-              class="project"
-              target="_blank"
-              id="reconsiderations"
-              >The Reconsiderations (stories)</a
-            >
-          </li>
-        </ul>
-        <ul id="press-head-sub" class="sub-cat">
-          <li>
-            <a
-              href="https://anchor.fm/keywordcrypto/episodes/Daniel-Goldman-Touts-Layer-2-on-Ethereum-edh4be"
-              class="project"
-              target="_blank"
-              id="keyword-crypto"
-              >Keyword: Crypto Podcast</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://blog.sicksubroutine.com/episode-lnj018-daniel-goldman-explains-why-layer-2-on-ethereum-pwns-bitcoin/"
-              class="project"
-              target="_blank"
-              id="ln-junkies"
-              >Lightning Junkies Podcast</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://www.coindesk.com/verges-blockchain-attacks-are-worth-a-sober-second-look/"
-              class="project"
-              target="_blank"
-              id="coindesk"
-              >Coindesk</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://ethereum.org/learn/#plasma/"
-              class="project"
-              target="_blank"
-              id="ethereum"
-              >Ethereum.org</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://nextgenerationcurrency.com/attacco-hack-subito-da-verge/"
-              class="project"
-              target="_blank"
-              id="italian"
-              >Next Generation Currency</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://cryptoconomy.podbean.com/e/cryptochat-with-daniel-goldman-verge-digital-gold-forks-and-going-down-the-rabbit-hole/"
-              class="project"
-              target="_blank"
-              id="cryptoconomy"
-              >Cryptoconomy Podcast</a
-            >
-          </li>
-        </ul>
 
-        <ul id="links-head-sub" class="sub-cat">
-          <li id="links-head"></li>
-          <li>
-            <a
-              target="_blank"
-              href="./assets/dzkey.asc"
-              class="link"
-              id="pgp"
-              download
-              >PGP</a
-            >
-          </li>
-          <li>
-            <a
-              href="images/DanielGoldmanResume.pdf"
-              class="link"
-              target="_blank"
-              id="myresume"
-              >Resume</a
-            >
-          </li>
-
-          <li>
-            <a
-              href="https://github.com/DZGoldman"
-              class="link"
-              target="_blank"
-              id="Github"
-              >Github</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://medium.com/@dzack23"
-              class="link"
-              target="_blank"
-              id="Medium"
-              >Medium</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://twitter.com/DZack23"
-              class="link"
-              target="_blank"
-              id="twitter"
-              >Twitter</a
-            >
-          </li>
-          </li>
-          <li>
-            <a
-              href="contact.html"
-              class="link"
-              id="email-anon"
-              >Send me a message</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://dzack23.substack.com/"
-              class="link"
-              target="_top"
-              id="substack"
-              >Newsletter</a
-            >
-          </li>
-        </ul>
-
-        <!-- 
-            <li id='writing-head' class = 'heading'>  </li>
-            <li id='other-writing-head' class = 'heading'>  </li>
-            <li id='press-head' class = 'heading'>  </li>
-            <li id='links-head' class = 'heading'>  </li> -->
-      </div>
-      <div id="info"></div>
-
-      <!-- end wrapper -->
     </div>
-    <footer>
-      <br />
-      <div id="spaceship-container">
-        <img
-          id="space-ship"
-          src="images/cartoon-rocket.png"
-          alt="Cartoon Rocket"
-          style="width: 80px; height: auto; display: none"
-        />
-      </div>
-      <div id="c">
-        <span class="c">&copy Daniel Goldman 2025</span>
-      </div>
-    </footer>
-    <div id="corner-3" class="corner"></div>
-    <div id="corner-4" class="corner"></div>
-    <div id="bottom-right-text">if you can read this, you don't need glasses</div>
-    
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+    <div id="info"></div>
 
-    <script src="app.js"></script>
-    <script src="play.js"></script>
-  </body>
+    <!-- end wrapper -->
+  </div>
+  <footer>
+    <br />
+    <div id="spaceship-container">
+      <img id="space-ship" src="images/cartoon-rocket.png" alt="Cartoon Rocket"
+        style="width: 80px; height: auto; display: none" />
+    </div>
+    <div id="c">
+      <span class="c">&copy Daniel Goldman 2025</span>
+    </div>
+  </footer>
+  <div id="corner-3" class="corner"></div>
+  <div id="corner-4" class="corner"></div>
+  <div id="bottom-right-text">if you can read this, you don't need glasses</div>
+
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+
+  <script src="app.js"></script>
+  <script src="play.js"></script>
+</body>
+
 </html>
