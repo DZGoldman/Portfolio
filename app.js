@@ -370,6 +370,9 @@ $(function() {
       if (clicked) return;
       clicked = true;
       localStorage["clickCount"]--;
+      if (localStorage["clickCount"] > 0) {
+        console.log(`%cRefresh; ${localStorage["clickCount"]} more to go`,  "color: blue;");
+      }
       $("#counter").text(localStorage["clickCount"]);
       if (localStorage["clickCount"] == 0) {
         $("#counter").fadeOut(2000, function() {
