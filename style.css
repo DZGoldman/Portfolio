@@ -380,3 +380,24 @@ span {
   font-family: Arial, sans-serif;
   z-index: 1000;
 }
+
+#mobile-desktop-switch {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  z-index: 1001;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  #mobile-desktop-switch {
+    display: block;
+  }
+}
