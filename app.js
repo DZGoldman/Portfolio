@@ -371,10 +371,11 @@ $(function() {
       clicked = true;
       localStorage["clickCount"]--;
       if (localStorage["clickCount"] > 0) {
-        console.log(`%cRefresh; ${localStorage["clickCount"]} more to go`,  "color: blue;");
+        $("#counter").css("width", "150px");
+        $("#counter").text(localStorage["clickCount"] + " (refresh)");
       }
-      $("#counter").text(localStorage["clickCount"]);
-      if (localStorage["clickCount"] == 0) {
+      if (localStorage["clickCount"] <= 0) {
+        $("#counter").text("melt");
         $("#counter").fadeOut(2000, function() {
           localStorage["clickCount"] = 5;
           $("#counter").text(localStorage["clickCount"]);
